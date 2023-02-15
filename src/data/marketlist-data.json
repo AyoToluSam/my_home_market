@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Queen Size Bed Frame",
+    "price": 300,
+    "image": "https://via.placeholder.com/300x200.png?text=Queen+Size+Bed+Frame"
+  },
+  {
+    "id": 2,
+    "name": "Sofa Set",
+    "price": 500,
+    "image": "https://via.placeholder.com/300x200.png?text=Sofa+Set"
+  },
+  {
+    "id": 3,
+    "name": "Dining Table with Chairs",
+    "price": 400,
+    "image": "https://via.placeholder.com/300x200.png?text=Dining+Table+with+Chairs"
+  },
+  {
+    "id": 4,
+    "name": "Refrigerator",
+    "price": 200,
+    "image": "https://via.placeholder.com/300x200.png?text=Refrigerator"
+  },
+  {
+    "id": 5,
+    "name": "Washing Machine",
+    "price": 250,
+    "image": "https://via.placeholder.com/300x200.png?text=Washing+Machine"
+  },
+  {
+    "id": 6,
+    "name": "Microwave Oven",
+    "price": 50,
+    "image": "https://via.placeholder.com/300x200.png?text=Microwave+Oven"
+  },
+  {
+    "id": 7,
+    "name": "Vacuum Cleaner",
+    "price": 80,
+    "image": "https://via.placeholder.com/300x200.png?text=Vacuum+Cleaner"
+  },
+  {
+    "id": 8,
+    "name": "Blender",
+    "price": 20,
+    "image": "https://via.placeholder.com/300x200.png?text=Blender"
+  },
+  {
+    "id": 9,
+    "name": "Coffee Maker",
+    "price": 30,
+    "image": "https://via.placeholder.com/300x200.png?text=Coffee+Maker"
+  },
+  {
+    "id": 10,
+    "name": "Toaster",
+    "price": 15,
+    "image": "https://via.placeholder.com/300x200.png?text=Toaster"
+  },
+  {
+    "id": 11,
+    "name": "Iron",
+    "price": 10,
+    "image": "https://via.placeholder.com/300x200.png?text=Iron"
+  },
+  {
+    "id": 12,
+    "name": "Electric Fan",
+    "price": 25,
+    "image": "https://via.placeholder.com/300x200.png?text=Electric+Fan"
+  },
+  {
+    "id": 13,
+    "name": "Lamp",
+    "price": 20,
+    "image": "https://via.placeholder.com/300x200.png?text=Lamp"
+  },
+  {
+    "id": 14,
+    "name": "Air Conditioner",
+    "price": 300,
+    "image": "https://via.placeholder.com/300x200.png?text=Air+Conditioner"
+  },
+  {
+    "id": 15,
+    "name": "Reading Table",
+    "price": 150,
+    "image": "https://via.placeholder.com/300x200.png?text=Reading+Table"
+  },
+  {
+    "id": 16,
+    "name": "Smart Tv",
+    "price": 1050,
+    "image": "https://via.placeholder.com/300x200.png?text=Smart+Tv"
+  },
+  {
+    "id": 17,
+    "name": "Standing Fan",
+    "price": 45,
+    "image": "https://via.placeholder.com/300x200.png?text=Standing+Fan"
+  },
+  {
+    "id": 18,
+    "name": "Oven",
+    "price": 850,
+    "image": "https://via.placeholder.com/300x200.png?text=Oven"
+  },
+  {
+    "id": 19,
+    "name": "Water Heater",
+    "price": 500,
+    "image": "https://via.placeholder.com/300x200.png?text=Water+Heater"
+  },
+  {
+    "id": 20,
+    "name": "Curtains",
+    "price": 80,
+    "image": "https://via.placeholder.com/300x200.png?text=Curtains"
+  }
+]
