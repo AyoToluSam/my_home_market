@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
       <Header>
         <Logo>MyHomeMarket</Logo>
         <Nav>
-          <Link><NavLink>Home</NavLink></Link>
-          <Link><NavLink>Market</NavLink></Link>
-          <Link><NavLink>About</NavLink></Link>
+          <Link href={"/"}><NavLink>Home</NavLink></Link>
+          <Link href={"/Market"}><NavLink>Market</NavLink></Link>
+          <Link href={"/About"}><NavLink>About</NavLink></Link>
         </Nav>
       </Header>
       <Container>
