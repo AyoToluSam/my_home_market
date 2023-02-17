@@ -15,16 +15,32 @@ const Product = ({product}) => {
 
 export default Product;
 
+export async function getStaticPaths() {
+  const res = await fetch("http://localhost:3000/api/products");
+  const products = await res.json();
+
+  const paths = products.map((product) => ({
+    params: {
+      productId: `${product.id}`
+    }
+  }));
+ 
+  return {
+    paths,
+    fallback: false
+  }
+}
+
 export async function getStaticProps(context) {
-  const { id } = context.query;
+  const { productId } = context.params;
 
   const res = await fetch("http://localhost:3000/api/products");
   const products = await res.json();
-  const product = products[id-1];
+  const product = products[productId-1];
 
   return {
     props: {
-      product,
+      product
     },
   };
 }
