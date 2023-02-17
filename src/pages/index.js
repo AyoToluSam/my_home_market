@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Link href={"/Market"}> <p>Hello</p> </Link>
+        <Link href={"/market"}> <p>Hello</p> </Link>
       </main>
     </>
   )

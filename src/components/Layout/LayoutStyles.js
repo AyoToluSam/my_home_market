@@ -23,14 +23,14 @@ export const Logo = styled.h1`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-`;
 
-export const NavLink = styled.a`
-  color: #333;
-  margin-left: 20px;
-  text-decoration: none;
-  &:hover {
-    color: #666;
+  .navLink {
+    color: #333;
+    margin-left: 20px;
+    text-decoration: none;
+    &:hover {
+      color: #666;
+    }
   }
 `;
 

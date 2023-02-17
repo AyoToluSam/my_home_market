@@ -1,4 +1,4 @@
-import {Header, Logo, Nav, NavLink, Container, Footer} from './LayoutStyles'
+import {Header, Logo, Nav, Container, Footer} from './LayoutStyles'
 import Link from 'next/link';
 
 const Layout = ({ children }) => {
@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
       <Header>
         <Logo>MyHomeMarket</Logo>
         <Nav>
-          <Link href={"/"}><NavLink>Home</NavLink></Link>
-          <Link href={"/Market"}><NavLink>Market</NavLink></Link>
-          <Link href={"/About"}><NavLink>About</NavLink></Link>
+          <Link className='navLink' href={"/"}>Home</Link>
+          <Link className='navLink' href={"/market"}>Market</Link>
+          <Link className='navLink' href={"/about"}>About</Link>
         </Nav>
       </Header>
       <Container>
