@@ -11,7 +11,7 @@ export default Market
 
 export async function getStaticProps() {
 
-  const res = await fetch("http://localhost:3000/api/products");
+  const res = await fetch("http://localhost:4000/products");
   const data = await res.json();
 
   return {
