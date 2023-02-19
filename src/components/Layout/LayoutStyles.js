@@ -13,6 +13,10 @@ export const Header = styled.header`
   height: 80px;
   background-color: #f2f2f2;
   padding: 0 20px;
+
+  .cart {
+    cursor: pointer;
+  }
 `;
 
 export const Logo = styled.h1`

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CartContainer = styled.div`
+position: absolute;
 display: flex;
 flex-direction: column;
 align-items: center;

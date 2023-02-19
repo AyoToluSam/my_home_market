@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, CartTotal, CartTotalLabel, CartTotalPrice } from './CartStyles'
 
-const Cart = () => {
-  const [cartItems, setCartItems] = useState(items);
+const Cart = ({cartData}) => {
+  const [cartItems, setCartItems] = useState(cartData);
 
   useEffect(() => {
-    setCartItems(items);
-  }, [items]);
+    setCartItems(cartData);
+  }, [cartData]);
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
@@ -33,10 +33,10 @@ const Cart = () => {
 
 export default Cart
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
 
   // Fetch the user's cart data from the database or session
-  const cartData = /* fetch cart data from the database or session */;
+  const cartData = ;
 
   return {
     props: {

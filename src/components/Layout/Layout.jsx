@@ -1,7 +1,14 @@
+import { useState } from 'react';
 import {Header, Logo, Nav, Container, Footer} from './LayoutStyles'
 import Link from 'next/link';
+import Cart from '../Cart/Cart';
+import {BsCartFill} from 'react-icons/bs';
+
 
 const Layout = ({ children }) => {
+
+  const [open, setIsOpen] = useState(false);
+
   return (
     <>
       <Header>
@@ -11,7 +18,12 @@ const Layout = ({ children }) => {
           <Link className='navLink' href={"/market"}>Market</Link>
           <Link className='navLink' href={"/about"}>About</Link>
         </Nav>
+        <BsCartFill onClick={() => setIsOpen(!open)} className='cart' />
       </Header>
+      {
+        open &&
+        <Cart />
+      }
       <Container>
         {children}
       </Container>
