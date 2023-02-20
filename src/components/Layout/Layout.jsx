@@ -1,4 +1,4 @@
-import {Header, Logo, Nav, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
+import {BodyContainer, Header, Logo, Nav, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
 import Link from 'next/link';
 import Cart from '../Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   const {isOpen, openCart, cartQuantity} = useCart()
 
   return (
-    <div className='bodyContainer'>
+    <BodyContainer>
       <Header>
         <Logo>MyHomeMarket</Logo>
         <Nav>
@@ -18,8 +18,8 @@ const Layout = ({ children }) => {
           <Link className='navLink' href={"/market"}>Market</Link>
           <Link className='navLink' href={"/about"}>About</Link>
         </Nav>
-        <CartContainer>
-          <BsCartFill onClick={() => openCart()} className='cart' />
+        <CartContainer onClick={() => openCart()}>
+          <BsCartFill className='cart' />
           {cartQuantity > 0 &&
             <ItemCount>
               {cartQuantity}
@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
       <Footer>
         &copy; 2023 My Home Market. All rights reserved.
       </Footer>
-    </div>
+    </BodyContainer>
   );
 };
 

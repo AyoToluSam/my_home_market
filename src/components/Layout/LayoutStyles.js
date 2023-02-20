@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const BodyContainer = styled.div`
+  /* max-width: 1280px;
+  margin: 0 auto;
+  overflow: auto; */
+  position: relative;
+`;
+
 export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;

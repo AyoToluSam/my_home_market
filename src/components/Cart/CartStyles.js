@@ -6,6 +6,7 @@ top: 0;
 right: 0;
 padding: 1.5rem;
 height: 100vh;
+min-width: 50vw;
 background-color: #f2f2f2;
 box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
 display: flex;

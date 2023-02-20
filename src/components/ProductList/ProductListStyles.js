@@ -4,14 +4,18 @@ export const ProductListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
 `;
 
 export const ProductCard = styled.div`
   width: 300px;
-  margin: 20px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const ProductImage = styled.img`
@@ -23,13 +27,11 @@ export const ProductImage = styled.img`
 
 export const ProductName = styled.h2`
   font-size: 20px;
-  margin: 10px 0;
 `;
 
 export const ProductPrice = styled.p`
   font-size: 18px;
   font-weight: bold;
-  margin: 10px 0;
 `;
 
 export const AddToCart = styled.button`
