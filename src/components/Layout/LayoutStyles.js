@@ -38,6 +38,37 @@ export const Nav = styled.nav`
   }
 `;
 
+export const CartContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+`;
+
+export const ItemCount = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: darkred;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  transform: translate(37.5%, 37.5%);
+`;
+
+
 export const Footer = styled.footer`
   height: 100px;
   display: flex;

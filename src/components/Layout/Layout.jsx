@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import {Header, Logo, Nav, Container, Footer} from './LayoutStyles'
+import {Header, Logo, Nav, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
 import Link from 'next/link';
 import Cart from '../Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
+import { useCart } from '@/contexts/CartContext';
 
 
 const Layout = ({ children }) => {
 
-  const [open, setIsOpen] = useState(false);
+  const {isOpen, openCart, cartQuantity} = useCart()
 
   return (
-    <>
+    <div className='bodyContainer'>
       <Header>
         <Logo>MyHomeMarket</Logo>
         <Nav>
@@ -18,19 +18,26 @@ const Layout = ({ children }) => {
           <Link className='navLink' href={"/market"}>Market</Link>
           <Link className='navLink' href={"/about"}>About</Link>
         </Nav>
-        <BsCartFill onClick={() => setIsOpen(!open)} className='cart' />
+        <CartContainer>
+          <BsCartFill onClick={() => openCart()} className='cart' />
+          {cartQuantity > 0 &&
+            <ItemCount>
+              {cartQuantity}
+            </ItemCount>
+          }
+        </CartContainer>
+        {
+          isOpen &&
+          <Cart />
+        }
       </Header>
-      {
-        open &&
-        <Cart />
-      }
       <Container>
         {children}
       </Container>
       <Footer>
         &copy; 2023 My Home Market. All rights reserved.
       </Footer>
-    </>
+    </div>
   );
 };
 

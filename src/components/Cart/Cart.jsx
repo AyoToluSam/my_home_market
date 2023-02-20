@@ -1,46 +1,43 @@
-import { useState, useEffect } from 'react';
-import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, CartTotal, CartTotalLabel, CartTotalPrice } from './CartStyles'
+import {GrFormClose} from 'react-icons/gr'
+import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, Remove, CartTotal } from './CartStyles'
+import { useCart } from '@/contexts/CartContext'
+import { formatCurrency } from '@/utilities/formatCurrency'
+import data from '@/data/productlist-data.json'
 
-const Cart = ({cartData}) => {
-  const [cartItems, setCartItems] = useState(cartData);
+const Cart = () => {
 
-  useEffect(() => {
-    setCartItems(cartData);
-  }, [cartData]);
-
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0);
-  };
+  const {closeCart, cartItems, removeFromCart} = useCart()
 
   return (
     <CartContainer>
+      <GrFormClose className='close' onClick={() => closeCart()} />
       <h2>Your Cart</h2>
       <CartList>
-        {cartItems.map((item) => (
-          <CartItem key={item.id}>
-            <CartItemName>{item.name}</CartItemName>
-            <CartItemPrice>${item.price.toFixed(2)}</CartItemPrice>
-          </CartItem>
-        ))}
+        {cartItems.map((item) => {
+          const cartItem = data.find(dataItem => dataItem.id === item.id)
+          return (
+            <CartItem key={item.id}>
+              <CartItemName>{cartItem.name}</CartItemName>
+              {item.quantity > 1 &&
+                <p>
+                  x{item.quantity}
+                </p>
+              }
+              <CartItemPrice>{formatCurrency(cartItem.price * item.quantity)}</CartItemPrice>
+              <Remove onClick={() => removeFromCart(item.id)}>x</Remove>
+            </CartItem>
+          )
+        })}
       </CartList>
       <CartTotal>
-        <CartTotalLabel>Total:</CartTotalLabel>
-        <CartTotalPrice>${calculateTotal().toFixed(2)}</CartTotalPrice>
+        Total: {formatCurrency(cartItems.reduce(
+        (total, cartItem) => {
+          const item = data.find(item => item.id === cartItem.id)
+          return total + (item?.price || 0) * cartItem.quantity
+        }, 0))}
       </CartTotal>
     </CartContainer>
   );
 }
 
 export default Cart
-
-export async function getServerSideProps() {
-
-  // Fetch the user's cart data from the database or session
-  const cartData = ;
-
-  return {
-    props: {
-      cartData: cartData || [],
-    },
-  };
-}
