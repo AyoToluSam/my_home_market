@@ -1,4 +1,5 @@
 import { Wrapper, Title, Description, Condition, Location, Contact, Price } from './ProductDetailStyles'
+import { formatCurrency } from '@/utilities/formatCurrency'
 
 
 const ProductDetail = ({ product }) => {
@@ -10,7 +11,7 @@ const ProductDetail = ({ product }) => {
       <Condition>Condition: {product.condition}</Condition>
       <Location>Location: {product.location}</Location>
       <Contact>Contact: {product.contact}</Contact>
-      <Price>Price: {product.price}</Price>
+      <Price>Price: {formatCurrency(product.price)}</Price>
     </Wrapper>
   );
 }

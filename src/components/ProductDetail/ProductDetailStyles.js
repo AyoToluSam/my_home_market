@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   padding: 24px;
 `;
 
@@ -14,22 +15,18 @@ export const Title = styled.h1`
 
 export const Description = styled.p`
   font-size: 18px;
-  margin-bottom: 8px;
 `;
 
 export const Condition = styled.p`
   font-size: 18px;
-  margin-bottom: 8px;
 `;
 
 export const Location = styled.p`
   font-size: 18px;
-  margin-bottom: 8px;
 `;
 
 export const Contact = styled.p`
   font-size: 18px;
-  margin-bottom: 8px;
 `;
 
 export const Price = styled.p`
