@@ -5,6 +5,9 @@ export const BodyContainer = styled.div`
   margin: 0 auto;
   overflow: auto; */
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 export const Container = styled.div`
@@ -78,6 +81,7 @@ export const ItemCount = styled.div`
 
 export const Footer = styled.footer`
   height: 100px;
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;

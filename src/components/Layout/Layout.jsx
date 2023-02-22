@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
         <Nav>
           <Link className='navLink' href={"/"}>Home</Link>
           <Link className='navLink' href={"/market"}>Market</Link>
+          <Link className='navLink' href={"/sellProduct"}>Sell Product</Link>
           <Link className='navLink' href={"/about"}>About</Link>
         </Nav>
         <CartContainer onClick={() => openCart()}>
