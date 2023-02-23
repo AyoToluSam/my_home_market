@@ -99,7 +99,7 @@
       "condition": "Like New",
       "location": "Chicago, IL",
       "contact": "jane.smith@example.com"
-    },  
+    },
     {
       "id": 11,
       "name": "Rowenta Steam Iron",
@@ -169,8 +169,7 @@
       "condition": "Gently used",
       "location": "Los Angeles, CA",
       "contact": "janedoe@gmail.com"
-    }
-    ,
+    },
     {
       "id": 18,
       "name": "Oven",
@@ -200,6 +199,30 @@
       "condition": "Brand new",
       "location": "Houston, TX",
       "contact": "janedoe@gmail.com"
+    },
+    {
+      "name": "iqciubq",
+      "description": "hq cj ",
+      "condition": "used-like-new",
+      "price": "100",
+      "location": "Lagos, Nigeria",
+      "contact": "uqygibiuq",
+      "image": {
+        "0": {}
+      },
+      "id": 21
+    },
+    {
+      "name": "egicibwkc",
+      "description": "gceqgiueq",
+      "condition": "fairly-used",
+      "price": "200",
+      "location": "Lagos, Nigeria",
+      "contact": "ijo3whuikv",
+      "image": {
+        "0": {}
+      },
+      "id": 22
     }
   ]
 }

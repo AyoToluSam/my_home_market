@@ -22,7 +22,7 @@ export const Header = styled.header`
   justify-content: space-between;
   height: 80px;
   background-color: #f2f2f2;
-  padding: 0 20px;
+  padding: 2rem;
 
   .cart {
     cursor: pointer;
@@ -80,7 +80,7 @@ export const ItemCount = styled.div`
 
 
 export const Footer = styled.footer`
-  height: 100px;
+  padding: 2rem;
   margin-top: auto;
   display: flex;
   align-items: center;

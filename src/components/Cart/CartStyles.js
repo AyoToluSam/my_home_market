@@ -15,7 +15,7 @@ gap: 2rem;
 
 .close {
   position: absolute;
-  right: 1.2rem;
+  right: 2rem;
   top: 1.5rem;
   font-size: 2rem;
   cursor: pointer;

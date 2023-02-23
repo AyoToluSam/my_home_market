@@ -1,19 +1,38 @@
-import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import {SellWrapper} from './sellProductStyles'
+import {SellWrapper} from './sellStyles'
+import { useRouter } from 'next/router';
 
-const SellProduct = () => {
 
-  const [image, setImage] = useState(null);
+const Sell = () => {
+
+  const imgUrl = "https://via.placeholder.com/300x200.png?text="
+
+  const router = useRouter()
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const onSubmit = async (data) => {
 
-  const handleImageUpload = (event) => {
-    console.log(event);
+    localStorage.setItem("product", JSON.stringify({...data, image: imgUrl + data.name.replaceAll(" ", "+")}))
+
+    try {
+      const response = await fetch('http://localhost:4000/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to submit form data');
+      }
+  
+      router.push('/sell/product');
+    } catch (error) {
+      console.error(error);
+      setError('submit', { message: 'Failed to submit form data' });
+    }
   };
 
   return (
@@ -69,4 +88,4 @@ const SellProduct = () => {
   );
 }
 
-export default SellProduct
+export default Sell
