@@ -1,38 +1,38 @@
 import styled from "styled-components";
 
-export const SuccessAlert = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 999;
-`;
-
 export const BlurBackground = styled.div`
   position: fixed;
+  z-index: 998;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 998;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+  `;
 
 export const Container = styled.div`
+  position: fixed;
+  z-index: 998;
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 3rem;
-  color: white;
-  font-size: 3rem;
   text-align: center;
+  background-color: #f2f2f2;
+  padding: 3rem;
+  border-radius: 8px;
+
+  h2 {
+    margin: 0;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+  }
 `;

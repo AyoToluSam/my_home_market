@@ -1,23 +1,25 @@
-import React from 'react';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import ProductDetail from '@/components/ProductDetail/ProductDetail'
-import {BlurBackground, SuccessAlert, Container} from './productStyles'
+import { BlurBackground, Container} from './productStyles'
 
 const Product = () => {
 
   const product = JSON.parse(localStorage.getItem("product"));
 
+  const [open, setOpen] = useState(true);
+
   return (
     <>
-      <Popup>
-        <Container>
-          <h2>Success!</h2>
-          <p>Product has been added to the market.</p>
-        </Container>
-      </Popup>
-      {/* <ProductDetail product={product} /> */}
+      <ProductDetail product={product} />
+      { open &&
+        <BlurBackground>
+          <Container>
+            <h2>Success!</h2>
+            <p>Product has been added to the market.</p>
+            <button onClick={() => setOpen(false)}>Ok</button>
+          </Container>
+        </BlurBackground>
+      }
     </>
   );
 }

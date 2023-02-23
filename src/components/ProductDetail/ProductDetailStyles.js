@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 1rem;
   padding: 24px;
+
+  img {
+    border-radius: 5px;
+  }
 `;
 
 export const Title = styled.h1`

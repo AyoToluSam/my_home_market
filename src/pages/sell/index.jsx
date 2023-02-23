@@ -9,11 +9,15 @@ const Sell = () => {
 
   const router = useRouter()
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, setError, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
 
-    localStorage.setItem("product", JSON.stringify({...data, image: imgUrl + data.name.replaceAll(" ", "+")}))
+    const newData = {...data, image: imgUrl + data.name.replaceAll(" ", "+")}
+
+    console.log(newData)
+
+    localStorage.setItem("product", JSON.stringify(newData))
 
     try {
       const response = await fetch('http://localhost:4000/products', {
@@ -21,7 +25,7 @@ const Sell = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(newData)
       });
   
       if (!response.ok) {

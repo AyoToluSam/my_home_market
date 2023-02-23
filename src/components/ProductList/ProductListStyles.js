@@ -15,7 +15,6 @@ export const ProductCard = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 `;
 
 export const ProductImage = styled.img`

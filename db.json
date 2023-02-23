@@ -201,28 +201,14 @@
       "contact": "janedoe@gmail.com"
     },
     {
-      "name": "iqciubq",
-      "description": "hq cj ",
-      "condition": "used-like-new",
-      "price": "100",
-      "location": "Lagos, Nigeria",
-      "contact": "uqygibiuq",
-      "image": {
-        "0": {}
-      },
+      "name": "experimental",
+      "description": "experimental",
+      "condition": "in-good-condition",
+      "price": "700",
+      "location": "Ibadan",
+      "contact": "experimental",
+      "image": "https://via.placeholder.com/300x200.png?text=experimental",
       "id": 21
-    },
-    {
-      "name": "egicibwkc",
-      "description": "gceqgiueq",
-      "condition": "fairly-used",
-      "price": "200",
-      "location": "Lagos, Nigeria",
-      "contact": "ijo3whuikv",
-      "image": {
-        "0": {}
-      },
-      "id": 22
     }
   ]
 }
