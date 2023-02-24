@@ -11,7 +11,7 @@ export default Market
 
 export async function getStaticProps() {
 
-  const res = await fetch("http://localhost:4000/products");
+  const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
   const data = await res.json();
 
   return {

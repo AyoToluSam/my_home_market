@@ -199,16 +199,6 @@
       "condition": "Brand new",
       "location": "Houston, TX",
       "contact": "janedoe@gmail.com"
-    },
-    {
-      "name": "experimental",
-      "description": "experimental",
-      "condition": "in-good-condition",
-      "price": "700",
-      "location": "Ibadan",
-      "contact": "experimental",
-      "image": "https://via.placeholder.com/300x200.png?text=experimental",
-      "id": 21
     }
   ]
 }

@@ -1,5 +1,4 @@
 import ProductDetail from '@/components/ProductDetail/ProductDetail'
-import { useRouter } from 'next/router';
 
 const Product = ({product}) => {
 
@@ -16,7 +15,7 @@ const Product = ({product}) => {
 export default Product;
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:4000/products");
+  const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
   const products = await res.json();
 
   const paths = products.map((product) => ({
@@ -34,7 +33,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { productId } = context.params;
 
-  const res = await fetch(`http://localhost:4000/products/${productId}`);
+  const res = await fetch(`https://63f78f6ee8a73b486afaedef.mockapi.io/products/${productId}`);
   const product = await res.json();
 
   return {
@@ -43,9 +42,3 @@ export async function getStaticProps(context) {
     },
   };
 }
-
-      // if (product === undefined) {
-      //   return {
-      //     notFound: true,
-      //   }
-      // }

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Queen Size Bed Frame",
     "price": 300,
     "image": "https://via.placeholder.com/300x200.png?text=Queen+Size+Bed+Frame",
@@ -10,7 +10,7 @@
     "contact": "bobsmith@gmail.com"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Sofa Set",
     "price": 500,
     "image": "https://via.placeholder.com/300x200.png?text=Sofa+Set",
@@ -20,7 +20,7 @@
     "contact": "johndoe@gmail.com"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Dining Table with Chairs",
     "price": 400,
     "image": "https://via.placeholder.com/300x200.png?text=Dining+Table+with+Chairs",
@@ -30,7 +30,7 @@
     "contact": "janedoe@gmail.com"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Refrigerator",
     "price": 200,
     "image": "https://via.placeholder.com/300x200.png?text=Refrigerator",
@@ -40,7 +40,7 @@
     "contact": "alicejohnson@gmail.com"
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "Washing Machine",
     "price": 250,
     "image": "https://via.placeholder.com/300x200.png?text=Washing+Machine",
@@ -50,7 +50,7 @@
     "contact": "mikesmith@gmail.com"
   },
   {
-    "id": 6,
+    "id": "6",
     "name": "Microwave",
     "price": 50,
     "image": "https://via.placeholder.com/300x200.png?text=Microwave",
@@ -60,7 +60,7 @@
     "contact": "peterbrown@gmail.com"
   },
   {
-    "id": 7,
+    "id": "7",
     "name": "Vacuum Cleaner",
     "price": 80,
     "image": "https://via.placeholder.com/300x200.png?text=Vacuum+Cleaner",
@@ -70,7 +70,7 @@
     "contact": "monicasmith@gmail.com"
   },
   {
-    "id": 8,
+    "id": "8",
     "name": "King Size Mattress",
     "price": 200,
     "image": "https://via.placeholder.com/300x200.png?text=King+Size+Mattress",
@@ -80,7 +80,7 @@
     "contact": "johndoe@example.com"
   },
   {
-    "id": 9,
+    "id": "9",
     "name": "Coffee Table",
     "price": 80,
     "image": "https://via.placeholder.com/300x200.png?text=Coffee+Table",
@@ -90,7 +90,7 @@
     "contact": "johndoe@example.com"
   },
   {
-    "id": 10,
+    "id": "10",
     "name": "Cuisinart Toaster",
     "price": 29.99,
     "image": "https://via.placeholder.com/300x200.png?text=Cuisinart+Toaster",
@@ -100,7 +100,7 @@
     "contact": "jane.smith@example.com"
   },  
   {
-    "id": 11,
+    "id": "11",
     "name": "Rowenta Steam Iron",
     "price": 59.99,
     "image": "https://via.placeholder.com/300x200.png?text=Rowenta+Steam+Iron",
@@ -110,7 +110,7 @@
     "contact": "john.doe@example.com"
   },
   {
-    "id": 12,
+    "id": "12",
     "name": "Vintage Record Player",
     "price": 150,
     "image": "https://via.placeholder.com/300x200.png?text=Vintage+Record+Player",
@@ -120,7 +120,7 @@
     "contact": "janedoe@example.com"
   },
   {
-    "id": 13,
+    "id": "13",
     "name": "Antique Brass Table Lamp",
     "price": 75,
     "image": "https://via.placeholder.com/300x200.png?text=Antique+Brass+Table+Lamp",
@@ -130,7 +130,7 @@
     "contact": "janedoe@example.com"
   },
   {
-    "id": 14,
+    "id": "14",
     "name": "Window Air Conditioner",
     "price": 249.99,
     "image": "https://via.placeholder.com/300x200.png?text=Window+Air+Conditioner",
@@ -140,7 +140,7 @@
     "contact": "sara.johnson@example.com"
   },
   {
-    "id": 15,
+    "id": "15",
     "name": "Outdoor Patio Set",
     "price": 300,
     "image": "https://via.placeholder.com/300x200.png?text=Outdoor+Patio+Set",
@@ -150,7 +150,7 @@
     "contact": "johndoe@example.com"
   },
   {
-    "id": 16,
+    "id": "16",
     "name": "Samsung 55-Inch 4K UHD Smart TV",
     "price": 799.99,
     "image": "https://via.placeholder.com/300x200.png?text=Samsung+55-Inch+4K+UHD+Smart+TV",
@@ -160,7 +160,7 @@
     "contact": "johndoe@gmail.com"
   },
   {
-    "id": 17,
+    "id": "17",
     "name": "Lasko 18-Inch Pedestal Fan",
     "price": 59.99,
     "image": "https://via.placeholder.com/300x200.png?text=Lasko+18-Inch+Pedestal+Fan",
@@ -171,7 +171,7 @@
   }
   ,
   {
-    "id": 18,
+    "id": "18",
     "name": "Oven",
     "price": 850,
     "image": "https://via.placeholder.com/300x200.png?text=Oven",
@@ -181,7 +181,7 @@
     "contact": "sarahjones@gmail.com"
   },
   {
-    "id": 19,
+    "id": "19",
     "name": "Water Heater",
     "price": 899.99,
     "image": "https://via.placeholder.com/300x200.png?text=Water+Heater",
@@ -191,7 +191,7 @@
     "contact": "johndoe@gmail.com"
   },
   {
-    "id": 20,
+    "id": "20",
     "name": "Set of Two Blackout Curtains",
     "price": 49.99,
     "image": "https://via.placeholder.com/300x200.png?text=Curtains",
