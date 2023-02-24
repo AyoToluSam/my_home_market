@@ -64,10 +64,10 @@ const Sell = () => {
           <label htmlFor="condition">Condition</label>
           <select {...register("condition", { required: true })}>
             <option value="">Select a condition</option>
-            <option value="new">New</option>
-            <option value="used-like-new">Used (like new)</option>
-            <option value="fairly-used">Used (fairly)</option>
-            <option value="in-good-condition">Old (but in perfect condition)</option>
+            <option value="New">New</option>
+            <option value="Used-like-new">Used (like new)</option>
+            <option value="Fairly-used">Used (fairly)</option>
+            <option value="In-good-condition">Old (but in perfect condition)</option>
           </select>
           {errors.condition && <span>*This field is required</span>}
 

@@ -4,11 +4,24 @@ import Cart from '../Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
 import { useCart } from '@/contexts/CartContext';
 import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react'
 
 
 const Layout = ({ children }) => {
 
   const {isOpen, openCart, cartQuantity} = useCart()
+
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
+    const data = await res.json();
+    setData(data);
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
 
   return (
     <BodyContainer>
@@ -30,7 +43,7 @@ const Layout = ({ children }) => {
         </CartContainer>
         {
           isOpen &&
-          <Cart />
+          <Cart data={data} />
         }
       </Header>
       <Container>

@@ -25,6 +25,11 @@ export const SellWrapper = styled.div`
       border-radius: 0.25rem;
       border: 1px solid #ccc;
       width: 100%;
+      cursor: pointer;
+    }
+
+    option {
+      cursor: pointer;
     }
 
     span {

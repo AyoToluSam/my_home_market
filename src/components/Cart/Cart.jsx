@@ -2,9 +2,8 @@ import {GrFormClose} from 'react-icons/gr'
 import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, Remove, CartTotal } from './CartStyles'
 import { useCart } from '@/contexts/CartContext'
 import { formatCurrency } from '@/utilities/formatCurrency'
-import data from '@/data/productlist-data.json'
 
-const Cart = () => {
+const Cart = ({data}) => {
 
   const {closeCart, cartItems, removeFromCart} = useCart()
 
