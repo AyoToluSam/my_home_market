@@ -1,9 +1,9 @@
 import CheckoutForm from '@/components/CheckoutForm/CheckoutForm'
 import React from 'react'
 
-const CheckOut = () => {
+const CheckOut = ({data}) => {
   return (
-    <CheckoutForm/>
+    <CheckoutForm data={data}/>
   )
 }
 

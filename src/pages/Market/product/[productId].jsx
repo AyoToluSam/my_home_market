@@ -2,11 +2,6 @@ import ProductDetail from '@/components/ProductDetail/ProductDetail'
 
 const Product = ({product}) => {
 
-  // const router = useRouter();
-  // if (router.isFallback) {
-  //   return <h1>Loading...</h1>;
-  // }
-
   return (
     <ProductDetail product={product} />
   )
@@ -26,7 +21,7 @@ export async function getStaticPaths() {
  
   return {
     paths,
-    fallback: false //'blocking'
+    fallback: 'blocking'
   }
 }
 

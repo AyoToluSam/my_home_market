@@ -1,7 +1,12 @@
 import {useForm} from 'react-hook-form'
-import {CheckoutWrapper, CheckoutForm, FormLabel, FormSelect, FormOption, FormInput, FormButton} from './CheckoutFormStyles'
+import {CheckoutWrapper, CheckoutTag, Form, FormLabel, FormInput, FormButton} from './CheckoutFormStyles'
+import { useCart } from '@/contexts/CartContext'
+import { formatCurrency } from '@/utilities/formatCurrency'
 
-const CheckoutForm = () => {
+const CheckoutForm = ({data}) => {
+
+  const {cartItems, cartQuantity} = useCart()
+
   const {
     register,
     handleSubmit,
@@ -12,85 +17,92 @@ const CheckoutForm = () => {
 
   return (
     <CheckoutWrapper>
-      <CheckoutForm onSubmit={handleSubmit(onSubmit)}>
-        <FormLabel>Name</FormLabel>
+    <CheckoutTag>
+      <h1>Paying For {cartQuantity} items: 
+        <span>
+        Total = {formatCurrency(cartItems.reduce(
+            (total, cartItem) => {
+              const item = data.find(item => item.id === cartItem.id)
+              return total + (item?.price || 0) * cartItem.quantity
+            }, 0))}
+        </span>
+      </h1>
+    </CheckoutTag>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormLabel htmlFor="name">Name:</FormLabel>
         <FormInput
           type="text"
           {...register("name", {
-            required: "Name is required",
+            required: "*Name is required",
             minLength: {
               value: 3,
-              message: "Name should be at least 3 characters"
-            }
+              message: "*Name should be at least 3 characters"
+          }
           })}
         />
         {errors.name && <p>{errors.name.message}</p>}
 
-        <FormLabel>Email</FormLabel>
+        <FormLabel htmlFor="email">Email:</FormLabel>
         <FormInput
           type="email"
           {...register("email", {
-            required: "Email is required",
+            required: "*Email is required",
             pattern: {
               value: /^\S+@\S+$/i,
-              message: "Invalid email format"
-            }
+              message: "*Invalid email format"
+          }
           })}
         />
         {errors.email && <p>{errors.email.message}</p>}
         
-        <FormLabel htmlFor="paymentMethod">Payment Method:</FormLabel>
-        <FormSelect
+        <FormLabel htmlFor="cardNumber">Credit Card Number:</FormLabel>
+        <FormInput
           {...register("cardNumber", {
-            required: "Credit Card Number is required",
+            required: "*Credit Card Number is required",
             minLength: {
               value: 16,
-              message: "Credit Card Number should be 16 digits"
-            },
+              message: "*Credit Card Number should be 16 digits"
+          },
             maxLength: {
               value: 16,
-              message: "Credit Card Number should be 16 digits"
+              message: "*Credit Card Number should be 16 digits"
             }
           })}
-        >
-          <FormOption value="creditCard">Credit Card</FormOption>
-          <FormOption value="debitCard">Debit Card</FormOption>
-          <FormOption value="paypal">PayPal</FormOption>
-        </FormSelect>
+        />
         {errors.cardNumber && <p>{errors.cardNumber.message}</p>}
 
         <FormLabel htmlFor="cvv">CVV:</FormLabel>
         <FormInput
           type="text"
           {...register("cvv", {
-            required: "CVV is required",
+            required: "*CVV is required",
             minLength: {
               value: 3,
-              message: "CVV should be 3 digits"
-            },
+              message: "*CVV should be 3 digits"
+          },
             maxLength: {
               value: 3,
-              message: "CVV should be 3 digits"
+              message: "*CVV should be 3 digits"
             }
           })}
         />
         {errors.cvv && <p>{errors.cvv.message}</p>}
 
-        <FormLabel htmlFor="expiryDate">Expiry Date:</FormLabel>
+        <FormLabel htmlFor="expirationDate">Expiry Date:</FormLabel>
         <FormInput
           type="text"
           {...register("expirationDate", {
-            required: "Expiration Date is required",
+            required: "*Expiration Date is required",
             pattern: {
               value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
-              message: "Invalid expiration date format"
-            }
+              message: "*Invalid expiration date format"
+          }
           })}
         />
         {errors.expirationDate && <p>{errors.expirationDate.message}</p>}
 
         <FormButton type="submit">Submit Payment</FormButton>
-      </CheckoutForm>
+      </Form>
     </CheckoutWrapper>
   );
 }

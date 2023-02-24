@@ -1,22 +1,22 @@
 import React from 'react'
 import ProductList from '@/components/ProductList/ProductList';
 
-const Market = ({products}) => {
+const Market = ({data}) => {
   return (
-    <ProductList products={products} />
+    <ProductList products={data} />
   )
 }
 
-export default Market
+export default Market;
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
 
-  const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
-  const data = await res.json();
+//   const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
+//   const data = await res.json();
 
-  return {
-    props: {
-      products: data
-    }
-  }
-}
+//   return {
+//     props: {
+//       products: data
+//     }
+//   }
+// }

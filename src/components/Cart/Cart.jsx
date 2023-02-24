@@ -2,10 +2,19 @@ import {GrFormClose} from 'react-icons/gr'
 import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, Remove, TotalContainer, CartTotal, RemoveAll, CheckoutButton } from './CartStyles'
 import { useCart } from '@/contexts/CartContext'
 import { formatCurrency } from '@/utilities/formatCurrency'
+import { useRouter } from 'next/router'
+
 
 const Cart = ({data}) => {
 
+  const router = useRouter()
+
   const {closeCart, cartItems, removeFromCart, removeAll} = useCart()
+
+  const handleClick = () => {
+    closeCart()
+    router.push('/checkout')
+  }
 
   return (
     <CartContainer>
@@ -39,7 +48,7 @@ const Cart = ({data}) => {
         <RemoveAll onClick={() => removeAll()} >Remove all</RemoveAll>
       </TotalContainer>
       <CheckoutButton>
-        <button>Checkout</button>
+        <button onClick={handleClick} >Checkout</button>
       </CheckoutButton>
     </CartContainer>
   );
