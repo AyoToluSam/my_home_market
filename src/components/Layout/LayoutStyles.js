@@ -17,12 +17,15 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.header`
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 80px;
   background-color: #f2f2f2;
   padding: 2rem;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.1);
 
   .cart {
     cursor: pointer;
@@ -37,6 +40,7 @@ export const Logo = styled.h1`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
+  font-weight: bold;
 
   .navLink {
     color: #333;
@@ -58,6 +62,11 @@ export const CartContainer = styled.div`
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
+
+  &:hover {
+    color: #666;
+    border: 1px solid #666;
+  }
 `;
 
 export const ItemCount = styled.div`

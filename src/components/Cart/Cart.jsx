@@ -1,11 +1,11 @@
 import {GrFormClose} from 'react-icons/gr'
-import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, Remove, CartTotal } from './CartStyles'
+import { CartContainer, CartList, CartItem, CartItemName, CartItemPrice, Remove, TotalContainer, CartTotal, RemoveAll, CheckoutButton } from './CartStyles'
 import { useCart } from '@/contexts/CartContext'
 import { formatCurrency } from '@/utilities/formatCurrency'
 
 const Cart = ({data}) => {
 
-  const {closeCart, cartItems, removeFromCart} = useCart()
+  const {closeCart, cartItems, removeFromCart, removeAll} = useCart()
 
   return (
     <CartContainer>
@@ -28,13 +28,19 @@ const Cart = ({data}) => {
           )
         })}
       </CartList>
-      <CartTotal>
-        Total: {formatCurrency(cartItems.reduce(
-        (total, cartItem) => {
-          const item = data.find(item => item.id === cartItem.id)
-          return total + (item?.price || 0) * cartItem.quantity
-        }, 0))}
-      </CartTotal>
+      <TotalContainer>
+        <CartTotal>
+          Total: {formatCurrency(cartItems.reduce(
+          (total, cartItem) => {
+            const item = data.find(item => item.id === cartItem.id)
+            return total + (item?.price || 0) * cartItem.quantity
+          }, 0))}
+        </CartTotal>
+        <RemoveAll onClick={() => removeAll()} >Remove all</RemoveAll>
+      </TotalContainer>
+      <CheckoutButton>
+        <button>Checkout</button>
+      </CheckoutButton>
     </CartContainer>
   );
 }

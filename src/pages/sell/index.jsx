@@ -1,13 +1,10 @@
 import { useForm } from "react-hook-form";
 import {SellWrapper, BlurBackground, Loading, Container} from './sellStyles'
-import { useRouter } from 'next/router';
 import { useState } from "react";
 import Link from "next/link";
 
 
 const Sell = () => {
-
-  const router = useRouter()
 
   const [loading, setLoading] = useState(false);
 

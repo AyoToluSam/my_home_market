@@ -10,11 +10,29 @@ export const ProductListContainer = styled.div`
 
 export const ProductCard = styled.div`
   width: 300px;
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+
+  .allButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  
+    .quantityButtons {
+      display: flex;
+      gap: 1rem;
+  
+      span {
+        font-weight: bold;
+        margin-right: 0.4rem;
+      }
+    }
+  }
 `;
 
 export const ProductImage = styled.img`
@@ -38,6 +56,7 @@ export const AddToCart = styled.button`
   padding: 0.5rem;
   border: none;
   border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
 `;
 
@@ -45,13 +64,15 @@ export const QuantityButton = styled.button`
   padding: 0.2rem 0.5rem;
   border: none;
   border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
 `;
 
 export const RemoveButton = styled.button`
-  padding: 0.4rem;
+  padding: 0.5rem 1rem;
   background-color: darkred;
   border: none;
   border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
 `;

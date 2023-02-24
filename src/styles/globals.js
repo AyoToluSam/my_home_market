@@ -4,6 +4,8 @@ export const GlobalStyles = createGlobalStyle`
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
 html {
@@ -25,5 +27,14 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  cursor: pointer;
 }
 `;

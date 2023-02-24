@@ -77,6 +77,10 @@ export const CartProvider = ({children}) => {
     })
   }
 
+  const removeAll = () => {
+    setCartItems([]);
+  }
+
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity, 0 
   )
@@ -87,7 +91,8 @@ export const CartProvider = ({children}) => {
         getItemQuantity, 
         increaseItemQuantity, 
         decreaseItemQuantity, 
-        removeFromCart, 
+        removeFromCart,
+        removeAll, 
         isOpen,
         openCart, 
         closeCart, 

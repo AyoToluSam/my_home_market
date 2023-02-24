@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CartContainer = styled.div`
-position: absolute;
+position: fixed;
 top: 0;
 right: 0;
 padding: 1.5rem;
@@ -14,7 +14,7 @@ flex-direction: column;
 gap: 2rem;
 
 .close {
-  position: absolute;
+  position: fixed;
   right: 2rem;
   top: 1.5rem;
   font-size: 2rem;
@@ -34,6 +34,7 @@ gap: 1rem;
 export const CartItem = styled.li`
 display: flex;
 justify-content: space-between;
+align-items: center;
 gap: 1rem;
 width: 100%;
 margin-bottom: 10px;
@@ -55,12 +56,41 @@ export const Remove = styled.button`
   cursor: pointer;
 `;
 
+export const TotalContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const CartTotal = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-width: 100%;
 margin-top: 10px;
 font-weight: bold;
+`;
+
+export const RemoveAll = styled.button`
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: darkred;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+export const CheckoutButton = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  button {
+    font-weight: bold;
+    padding: 0.5rem 2rem;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 `;
 

@@ -29,7 +29,7 @@ const ProductList = ({products}) => {
               {
                 quantity === 0 ?
                 (<AddToCart onClick={() => increaseItemQuantity(product.id)}> + Add To Cart</AddToCart>) : 
-                (<div>
+                (<div className='allButtons'>
                   <div className='quantityButtons'>
                     <QuantityButton onClick={() => decreaseItemQuantity(product.id)}>-</QuantityButton>
                     <p><span>{quantity}</span>in cart</p>

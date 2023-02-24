@@ -4,8 +4,25 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 24px;
+  gap: 2rem;
+  padding: 2rem;
+
+  .allButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  
+    .quantityButtons {
+      display: flex;
+      gap: 1rem;
+  
+      span {
+        font-weight: bold;
+        margin-right: 0.4rem;
+      }
+    }
+  }
 
   img {
     border-radius: 5px;
@@ -14,7 +31,7 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: 36px;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 `;
 
 export const Description = styled.p`
@@ -36,14 +53,13 @@ export const Contact = styled.p`
 export const Price = styled.p`
   font-size: 24px;
   font-weight: bold;
-  margin-top: 16px;
 `;
 
 export const AddToCart = styled.button`
-  width: 100%;
-  padding: 0.5rem;
+  padding: 0.8rem 2rem;
   border: none;
   border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
 `;
 
@@ -55,7 +71,7 @@ export const QuantityButton = styled.button`
 `;
 
 export const RemoveButton = styled.button`
-  padding: 0.4rem;
+  padding: 0.5rem 1rem;
   background-color: darkred;
   border: none;
   border-radius: 4px;

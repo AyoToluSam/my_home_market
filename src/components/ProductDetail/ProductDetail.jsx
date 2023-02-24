@@ -22,12 +22,11 @@ const ProductDetail = ({ product }) => {
       <Location>Location: {product.location}</Location>
       <Contact>Contact: {product.contact}</Contact>
       <Price>Price: {formatCurrency(product.price)}</Price>
-      <br />
       <div>
         {
           quantity === 0 ?
           (<AddToCart onClick={() => increaseItemQuantity(product.id)}> + Add To Cart</AddToCart>) : 
-          (<div>
+          (<div className='allButtons'>
             <div className='quantityButtons'>
               <QuantityButton onClick={() => decreaseItemQuantity(product.id)}>-</QuantityButton>
               <p><span>{quantity}</span>in cart</p>

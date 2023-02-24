@@ -28,18 +28,16 @@ export const SellWrapper = styled.div`
       cursor: pointer;
     }
 
-    option {
-      cursor: pointer;
-    }
-
     span {
       color: tomato;
     }
 
     button {
+      margin-top: 1rem;
       padding: 0.5rem 1rem;
       border-radius: 0.25rem;
       border: none;
+      font-weight: bold;
       cursor: pointer;
     }
   }
