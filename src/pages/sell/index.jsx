@@ -12,7 +12,7 @@ const Sell = () => {
 
   const [productID, setProductID] = useState();
 
-  const imgUrl = "https://via.placeholder.com/300x200.png?text="
+  const imgUrl = "https://via.placeholder.com/300x200.png?text=";
 
   const { register, handleSubmit, setError, formState: { errors } } = useForm();
 
@@ -116,4 +116,4 @@ const Sell = () => {
   );
 }
 
-export default Sell
+export default Sell;
