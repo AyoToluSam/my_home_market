@@ -1,11 +1,11 @@
 import {useForm} from 'react-hook-form'
 import {CheckoutWrapper, CheckoutTag, Form, FormLabel, FormInput, FormButton} from './CheckoutFormStyles'
-import { useCart } from '@/contexts/CartContext'
-import { formatCurrency } from '@/utilities/formatCurrency'
+import {useCart} from '@/contexts/CartContext'
+import {formatCurrency} from '@/utilities/formatCurrency'
 
 const CheckoutForm = ({data}) => {
 
-  const {cartItems, cartQuantity} = useCart()
+  const {cartItems, cartQuantity} = useCart();
 
   const {
     register,
