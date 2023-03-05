@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
-import {SellWrapper, BlurBackground, Loading, Container} from './sellStyles'
+import {SellWrapper, BlurBackground, Loading, Container} from './sellStyles';
 import { useState } from "react";
 import Link from "next/link";
-
 
 const Sell = () => {
 
@@ -43,7 +42,7 @@ const Sell = () => {
       console.error(error);
       setError('submit', { message: 'Failed to submit form data' });
     }
-  };
+  }
 
   return (
     <>
@@ -100,7 +99,7 @@ const Sell = () => {
         <BlurBackground>
           { loading &&
             <Loading>
-              <img src="/Spinner-1.3s-200px.gif" alt="Loading" />
+              <img src="/Spinner-1.3s-200px.gif" alt="Loading"/>
             </Loading>
           }
           { (open && !loading) &&
