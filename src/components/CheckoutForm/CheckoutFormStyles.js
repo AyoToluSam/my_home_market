@@ -44,7 +44,6 @@ export const FormInput = styled.input`
   border-radius: 0.25rem;
   border: 1px solid #ccc;
   width: 100%;
-  cursor: pointer;
 `;
 
 export const FormButton = styled.button`

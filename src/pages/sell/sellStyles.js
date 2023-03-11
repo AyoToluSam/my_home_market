@@ -25,7 +25,6 @@ export const SellWrapper = styled.div`
       border-radius: 0.25rem;
       border: 1px solid #ccc;
       width: 100%;
-      cursor: pointer;
     }
 
     span {
@@ -76,7 +75,7 @@ export const Container = styled.div`
   z-index: 998;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -90,7 +89,8 @@ export const Container = styled.div`
 
   button {
     cursor: pointer;
-    padding: 0.2rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 5px;
+    border: 1px solid;
   }
 `;

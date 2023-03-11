@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 export const BodyContainer = styled.div`
-  /* max-width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
-  overflow: auto; */
   position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
 `;
 
 export const Container = styled.div`
@@ -25,7 +25,7 @@ export const Header = styled.header`
   height: 80px;
   background-color: #f2f2f2;
   padding: 2rem;
-  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.04);
 
   .cart {
     cursor: pointer;

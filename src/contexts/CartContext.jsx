@@ -1,5 +1,5 @@
 import { useLocalStorage } from '@/utilities/useLocalStorage'
-import { createContext, useContext, useState} from 'react'
+import { createContext, useContext, useState, useEffect} from 'react'
 
 
 //Creating a context to handle all the information about the cart,
@@ -21,6 +21,21 @@ export const useCart = () => {
 //for passing other components or data to the context provider.
 
 export const CartProvider = ({children}) => {
+    
+  const [data, setData] = useState([]);
+
+  //Fetching the data from the API endpoint and saving it in the above state.
+  //This is to provide the data to the whole application using the context.
+
+  const getData = async () => {
+    const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
+    const data = await res.json();
+    setData(data);
+  }
+
+  useEffect(() => {
+    getData();
+  }, [])
   
 //The state below handles the opening and closing of the cart button
 
@@ -97,7 +112,8 @@ export const CartProvider = ({children}) => {
         openCart, 
         closeCart, 
         cartQuantity, 
-        cartItems
+        cartItems,
+        data
       }}
     >
       {children}

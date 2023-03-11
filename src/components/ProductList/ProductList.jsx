@@ -6,18 +6,19 @@ import { formatCurrency } from '@/utilities/formatCurrency'
 
 
 
-const ProductList = ({products}) => {
+const ProductList = () => {
 
   const {
     getItemQuantity, 
     increaseItemQuantity, 
     decreaseItemQuantity,
-    removeFromCart
+    removeFromCart,
+    data
   } = useCart()
 
   return (
     <ProductListContainer>
-      {products.map((product) => {
+      {data.map((product) => {
         const quantity = getItemQuantity(product.id);
         return (
           <ProductCard key={product.id}>

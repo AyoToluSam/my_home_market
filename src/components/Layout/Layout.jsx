@@ -6,7 +6,7 @@ import { useCart } from '@/contexts/CartContext';
 import dynamic from 'next/dynamic';
 
 
-const Layout = ({ children, data }) => {
+const Layout = ({ children }) => {
 
   const {isOpen, openCart, cartQuantity} = useCart()
 
@@ -30,7 +30,7 @@ const Layout = ({ children, data }) => {
         </CartContainer>
         {
           isOpen &&
-          <Cart data={data} />
+          <Cart/>
         }
       </Header>
       <Container>

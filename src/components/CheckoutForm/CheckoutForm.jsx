@@ -3,9 +3,9 @@ import {CheckoutWrapper, CheckoutTag, Form, FormLabel, FormInput, FormButton} fr
 import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
 
-const CheckoutForm = ({data}) => {
+const CheckoutForm = () => {
 
-  const {cartItems, cartQuantity} = useCart();
+  const {cartItems, cartQuantity, data} = useCart();
 
   const {
     register,
@@ -18,7 +18,7 @@ const CheckoutForm = ({data}) => {
   return (
     <CheckoutWrapper>
     <CheckoutTag>
-      <h1>Paying For {cartQuantity} items: 
+      <h2>Paying for {cartQuantity} item{cartQuantity > 1 && "s"}: 
         <span>
         Total = {formatCurrency(cartItems.reduce(
             (total, cartItem) => {
@@ -26,7 +26,7 @@ const CheckoutForm = ({data}) => {
               return total + (item?.price || 0) * cartItem.quantity
             }, 0))}
         </span>
-      </h1>
+      </h2>
     </CheckoutTag>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormLabel htmlFor="name">Name:</FormLabel>

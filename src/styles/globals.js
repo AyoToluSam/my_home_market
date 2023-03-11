@@ -12,11 +12,12 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #0F1624;
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
   }
   ::-webkit-scrollbar-thumb {
     background-color: #0F1624;
     border-radius: 10px;
+    max-height: 20px;
   }
 }
 

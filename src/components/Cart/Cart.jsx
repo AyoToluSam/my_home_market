@@ -5,11 +5,11 @@ import { formatCurrency } from '@/utilities/formatCurrency'
 import { useRouter } from 'next/router'
 
 
-const Cart = ({data}) => {
+const Cart = () => {
 
   const router = useRouter()
 
-  const {closeCart, cartItems, removeFromCart, removeAll} = useCart()
+  const {closeCart, cartItems, removeFromCart, removeAll, data} = useCart()
 
   const handleClick = () => {
     closeCart()

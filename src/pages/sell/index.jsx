@@ -105,7 +105,7 @@ const Sell = () => {
           { (open && !loading) &&
             <Container>
               <h2>Success!</h2>
-              <p>Product has been added to the market.</p>
+              <p>Your product has been added to the market.</p>
               <Link href={`/market/product/${productID}`}><button>View Product</button></Link>
             </Container>
           }
