@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <main>
         <Container>
-          <Link href={"/market"}> <h1>Hello</h1> </Link>
+          <h1>Hello</h1>
         </Container>
       </main>
     </>

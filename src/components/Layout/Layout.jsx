@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Cart from '../Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
 import { useCart } from '@/contexts/CartContext';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 
 
 const Layout = ({ children }) => {
@@ -43,4 +43,6 @@ const Layout = ({ children }) => {
   );
 };
 
-export default dynamic (() => Promise.resolve(Layout), {ssr: false})
+export default Layout
+
+//export default dynamic (() => Promise.resolve(Layout), {ssr: false})

@@ -9,7 +9,7 @@ const Cart = () => {
 
   const router = useRouter()
 
-  const {closeCart, cartItems, removeFromCart, removeAll, data} = useCart()
+  const {closeCart, cartItems, cartQuantity, removeFromCart, removeAll, data} = useCart()
 
   const handleClick = () => {
     closeCart()
@@ -48,7 +48,7 @@ const Cart = () => {
         <RemoveAll onClick={() => removeAll()} >Remove all</RemoveAll>
       </TotalContainer>
       <CheckoutButton>
-        <button onClick={handleClick} >Checkout</button>
+        <button onClick={handleClick} disabled={!cartQuantity} >Checkout</button>
       </CheckoutButton>
     </CartContainer>
   );
