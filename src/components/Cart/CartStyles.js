@@ -2,24 +2,58 @@ import styled from 'styled-components';
 
 export const CartContainer = styled.div`
 position: fixed;
+z-index: 1;
 top: 0;
 right: 0;
-padding: 1.5rem;
-height: 100vh;
-min-width: 50vw;
+padding: 1.4rem 2rem;
+height: 100%;
+min-width: max-content;
 background-color: #f2f2f2;
 box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
 display: flex;
 flex-direction: column;
 gap: 2rem;
+overflow: auto;
+scroll-behavior: smooth;
+scrollbar-width: thin;
+scrollbar-color: grey;
 
-.close {
-  position: fixed;
-  right: 2rem;
-  top: 1.5rem;
-  font-size: 2rem;
+&::-webkit-scrollbar {
+    width: 4px;
+    display: none;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 4px;
+  }
+`;
+
+export const CloseContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  align-items: center;
+`;
+
+export const CloseButton = styled.div`
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 50%;
   cursor: pointer;
-}
+
+  
+  &:hover {
+    color: #666;
+    border: 1px solid #666;
+  }
 `;
 
 export const CartList = styled.ul`
@@ -32,12 +66,51 @@ gap: 1rem;
 `;
 
 export const CartItem = styled.li`
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 1rem;
-width: 100%;
-margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+export const CartImage = styled.img`
+  width: fit-content;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  img {
+    width: 60px;
+    max-width: 60px;
+
+    @media screen and (max-width: 640px) {
+      width: 40px;
+    }
+  }
+`;
+
+export const LeftDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+`;
+
+export const RightDiv = styled.div`
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  color: darkred;
+
+  @media screen and (max-width: 640px) {
+    margin: 0;
+    width: 100%;
+  }
 `;
 
 export const CartItemName = styled.span`
@@ -45,20 +118,20 @@ font-weight: bold;
 `;
 
 export const CartItemPrice = styled.span`
-margin-left: 10px;
+color: #000;
+font-weight: bold;
 `;
 
-export const Remove = styled.button`
-  background-color: darkred;
-  padding: 0.2rem 0.4rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+export const Empty = styled.p`
+  margin-top: 2rem;
 `;
 
 export const TotalContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 3rem;
+  margin-top: 2rem;
 `;
 
 export const CartTotal = styled.div`
