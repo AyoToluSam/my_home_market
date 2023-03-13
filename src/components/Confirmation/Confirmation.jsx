@@ -1,9 +1,9 @@
 import {useForm} from 'react-hook-form';
-import {CheckoutWrapper, CheckoutTag, Form, FormLabel, FormInput, FormButton} from './CheckoutFormStyles'
+import {ConfirmationWrapper, ConfirmationTag, Form, FormLabel, FormInput, FormButton} from './ConfirmationStyles'
 import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
 
-const CheckoutForm = () => {
+const Confirmation = () => {
 
   const {cartItems, cartQuantity, data} = useCart();
 
@@ -16,8 +16,8 @@ const CheckoutForm = () => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <CheckoutWrapper>
-    <CheckoutTag>
+    <ConfirmationWrapper>
+    <ConfirmationTag>
       <h2>Paying for {cartQuantity} item{cartQuantity > 1 && "s"}: 
         <span>
         Total = {formatCurrency(cartItems.reduce(
@@ -27,7 +27,7 @@ const CheckoutForm = () => {
             }, 0))}
         </span>
       </h2>
-    </CheckoutTag>
+    </ConfirmationTag>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormLabel htmlFor="name">Name:</FormLabel>
         <FormInput
@@ -101,11 +101,11 @@ const CheckoutForm = () => {
         />
         {errors.expirationDate && <p>{errors.expirationDate.message}</p>}
 
-        <FormButton type="submit">Submit Payment</FormButton>
+        <FormButton type="submit">Proceed to payment</FormButton>
       </Form>
-    </CheckoutWrapper>
+    </ConfirmationWrapper>
   )
 }
 
-export default CheckoutForm;
+export default Confirmation;
 

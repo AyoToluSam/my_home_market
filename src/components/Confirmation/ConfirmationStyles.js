@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CheckoutWrapper = styled.div`
+export const ConfirmationWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
   padding: 20px 50px;
@@ -9,7 +9,7 @@ export const CheckoutWrapper = styled.div`
   align-items: center;
 `;
 
-export const CheckoutTag = styled.div`
+export const ConfirmationTag = styled.div`
   margin: 1rem;
 
   h1 {

@@ -1,5 +1,6 @@
-import {BodyContainer, Header, Logo, Nav, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import {BodyContainer, Header, Logo, Nav, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
 import Cart from '../Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
 import { useCart } from '@/contexts/CartContext';
@@ -9,6 +10,12 @@ import { useCart } from '@/contexts/CartContext';
 const Layout = ({ children }) => {
 
   const {isOpen, openCart, cartQuantity} = useCart()
+  
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   return (
     <BodyContainer>
@@ -20,14 +27,16 @@ const Layout = ({ children }) => {
           <Link className='navLink' href={"/sell"}>Sell Product</Link>
           <Link className='navLink' href={"/about"}>About</Link>
         </Nav>
-        <CartContainer onClick={() => openCart()}>
-          <BsCartFill className='cart' />
-          {cartQuantity > 0 &&
-            <ItemCount>
-              {cartQuantity}
-            </ItemCount>
-          }
-        </CartContainer>
+        { isHydrated &&
+          <CartContainer onClick={() => openCart()}>
+            <BsCartFill className='cart' />
+            {cartQuantity > 0 &&
+              <ItemCount>
+                {cartQuantity}
+              </ItemCount>
+            }
+          </CartContainer>
+        }
         {
           isOpen &&
           <Cart/>

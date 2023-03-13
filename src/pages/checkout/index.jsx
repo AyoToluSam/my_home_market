@@ -1,9 +1,9 @@
-import CheckoutForm from '@/components/CheckoutForm/CheckoutForm'
+import Confirmation from '@/components/Confirmation/Confirmation'
 import React from 'react'
 
 const CheckOut = () => {
   return (
-    <CheckoutForm/>
+    <Confirmation/>
   )
 }
 
