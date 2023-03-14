@@ -1,24 +1,30 @@
 import styled from 'styled-components';
 
 
-export const CartList = styled.ul`
-list-style: none;
-padding: 0;
-margin: 0;
+export const ReviewList = styled.ul`
 display: flex;
 flex-direction: column;
 gap: 1rem;
 `;
 
-export const CartItem = styled.li`
+export const ReviewItem = styled.li`
+list-style: circle;
 display: flex;
-justify-content: space-between;
 align-items: center;
-gap: 1rem;
+gap: 2rem;
 width: 100%;
-margin-bottom: 10px;
 `;
 
-export const CartItemName = styled.span`
+export const ReviewImage = styled.img`
+  width: 120px;
+  max-width: 120px;
+  border-radius: 5px;
+
+  @media screen and (max-width: 640px) {
+    width: 80px;
+  }
+`;
+
+export const ReviewItemName = styled.span`
 font-weight: bold;
 `;

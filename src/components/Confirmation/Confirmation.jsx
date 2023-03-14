@@ -1,9 +1,18 @@
 import {useForm} from 'react-hook-form';
+import { useState, useEffect } from 'react';
 import {ConfirmationWrapper, ConfirmationTag, Form, FormLabel, FormInput, FormButton} from './ConfirmationStyles'
 import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
+import Review from '../Review/Review';
+
 
 const Confirmation = () => {
+
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const {cartItems, cartQuantity, data} = useCart();
 
@@ -17,17 +26,21 @@ const Confirmation = () => {
 
   return (
     <ConfirmationWrapper>
-    <ConfirmationTag>
-      <h2>Paying for {cartQuantity} item{cartQuantity > 1 && "s"}: 
-        <span>
-        Total = {formatCurrency(cartItems.reduce(
-            (total, cartItem) => {
-              const item = data.find(item => item.id === cartItem.id)
-              return total + (item?.price || 0) * cartItem.quantity
-            }, 0))}
-        </span>
-      </h2>
-    </ConfirmationTag>
+      <Review />
+      { isHydrated &&
+        <ConfirmationTag>
+          <h3>Paying for {cartQuantity} item{cartQuantity > 1 && "s"}: 
+            <span>
+            Total = {formatCurrency(cartItems.reduce(
+                (total, cartItem) => {
+                  const item = data.find(item => item.id === cartItem.id)
+                  return total + (item?.price || 0) * cartItem.quantity
+                }, 0))}
+            </span>
+          </h3>
+        </ConfirmationTag>
+      }
+      <h4>Enter your order details below.</h4>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormLabel htmlFor="name">Name:</FormLabel>
         <FormInput
@@ -55,52 +68,23 @@ const Confirmation = () => {
         />
         {errors.email && <p>{errors.email.message}</p>}
         
-        <FormLabel htmlFor="cardNumber">Credit Card Number:</FormLabel>
-        <FormInput
-          {...register("cardNumber", {
-            required: "*Credit Card Number is required",
-            minLength: {
-              value: 16,
-              message: "*Credit Card Number should be 16 digits"
-          },
-            maxLength: {
-              value: 16,
-              message: "*Credit Card Number should be 16 digits"
-            }
-          })}
-        />
-        {errors.cardNumber && <p>{errors.cardNumber.message}</p>}
-
-        <FormLabel htmlFor="cvv">CVV:</FormLabel>
+        <FormLabel htmlFor="phone">Phone number:</FormLabel>
         <FormInput
           type="text"
-          {...register("cvv", {
-            required: "*CVV is required",
-            minLength: {
-              value: 3,
-              message: "*CVV should be 3 digits"
-          },
-            maxLength: {
-              value: 3,
-              message: "*CVV should be 3 digits"
-            }
-          })}
-        />
-        {errors.cvv && <p>{errors.cvv.message}</p>}
-
-        <FormLabel htmlFor="expirationDate">Expiry Date:</FormLabel>
-        <FormInput
-          type="text"
-          {...register("expirationDate", {
-            required: "*Expiration Date is required",
+          {...register("phone", {
+            required: "*Phone number is required",
             pattern: {
-              value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
-              message: "*Invalid expiration date format"
-          }
+              value: /^[\+]?[2-4]{3}?[0-9]{10}$/,
+              message: "Please enter a valid phone number"
+            },
+            minLength: {
+              value: 11,
+              message: "Incomplete phone number"
+            }
           })}
         />
-        {errors.expirationDate && <p>{errors.expirationDate.message}</p>}
-
+        {errors.phone && <p>{errors.phone.message}</p>}
+        
         <FormButton type="submit">Proceed to payment</FormButton>
       </Form>
     </ConfirmationWrapper>
@@ -109,3 +93,48 @@ const Confirmation = () => {
 
 export default Confirmation;
 
+{/* <FormLabel htmlFor="cardNumber">Credit Card Number:</FormLabel>
+<FormInput
+  {...register("cardNumber", {
+    required: "*Credit Card Number is required",
+    minLength: {
+      value: 16,
+      message: "*Credit Card Number should be 16 digits"
+  },
+    maxLength: {
+      value: 16,
+      message: "*Credit Card Number should be 16 digits"
+    }
+  })}
+/>
+{errors.cardNumber && <p>{errors.cardNumber.message}</p>}
+
+<FormLabel htmlFor="cvv">CVV:</FormLabel>
+<FormInput
+  type="text"
+  {...register("cvv", {
+    required: "*CVV is required",
+    minLength: {
+      value: 3,
+      message: "*CVV should be 3 digits"
+  },
+    maxLength: {
+      value: 3,
+      message: "*CVV should be 3 digits"
+    }
+  })}
+/>
+{errors.cvv && <p>{errors.cvv.message}</p>}
+
+<FormLabel htmlFor="expirationDate">Expiry Date:</FormLabel>
+<FormInput
+  type="text"
+  {...register("expirationDate", {
+    required: "*Expiration Date is required",
+    pattern: {
+      value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
+      message: "*Invalid expiration date format"
+  }
+  })}
+/>
+{errors.expirationDate && <p>{errors.expirationDate.message}</p>} */}

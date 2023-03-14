@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const ConfirmationWrapper = styled.div`
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px 50px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   align-items: center;
 `;
 

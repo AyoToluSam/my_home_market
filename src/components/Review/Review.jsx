@@ -1,28 +1,31 @@
 import React from 'react'
 import { useCart } from '@/contexts/CartContext'
-import { CartList, CartItem, CartItemName } from './ReviewStyles'
-
+import { ReviewList, ReviewItem, ReviewImage, ReviewItemName } from './ReviewStyles'
 
 const Review = () => {
 
   const { cartItems, data} = useCart()
 
   return (
-    <CartList>
+    <ReviewList>
       {cartItems.map((item) => {
         const cartItem = data.find(dataItem => dataItem.id === item.id)
+        if (!cartItem) {
+          return null
+        }
         return (
-          <CartItem key={item.id}>
-            <CartItemName>{cartItem.name}</CartItemName>
+          <ReviewItem key={item.id}>
+            <ReviewImage src={cartItem.image} alt={cartItem.name} />
+            <ReviewItemName>{cartItem.name}</ReviewItemName>
             {item.quantity > 1 &&
               <p>
                 x{item.quantity}
               </p>
             }
-          </CartItem>
+          </ReviewItem>
         )
       })}
-    </CartList>
+    </ReviewList>
   )
 }
 
