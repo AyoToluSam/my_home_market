@@ -1,9 +1,13 @@
 import Confirmation from '@/components/Confirmation/Confirmation'
-import React from 'react'
+// import Script from 'next/script';
+
 
 const CheckOut = () => {
   return (
-    <Confirmation/>
+    <>
+      {/* <Script src="https://js.paystack.co/v1/inline.js" strategy='beforeInteractive' /> */}
+      <Confirmation/>
+    </>
   )
 }
 

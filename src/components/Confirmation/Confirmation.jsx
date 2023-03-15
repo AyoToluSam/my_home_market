@@ -4,7 +4,7 @@ import {ConfirmationWrapper, ConfirmationTag, Form, FormLabel, FormInput, FormBu
 import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
 import Review from '../Review/Review';
-import { paystack } from '@/utilities/paystack';
+import PaystackPop from '@paystack/inline-js'
 
 
 
@@ -31,13 +31,21 @@ const Confirmation = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const paystackData = {
-      email: data.email,
-      amount: totalPayment*100
-    }
 
-    paystack(paystackData);
-    
+    const paystack = new PaystackPop()
+    paystack.newTransaction({
+      key: 'pk_test_64a90dc69ec7acaf8604ef64906b695ea742061d',
+      amount: totalPayment*100,
+      email: data.email,
+      onSuccess(transaction){
+        const message = `Payment complete! Refrence ${transaction.reference}`
+        alert(message)
+
+      },
+      onCancel(){
+        alert("You have canceled this transaction")
+      }
+    })
   };
 
   return (

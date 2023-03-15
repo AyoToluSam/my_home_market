@@ -8,9 +8,9 @@ gap: 1rem;
 `;
 
 export const ReviewItem = styled.li`
-list-style: circle;
 display: flex;
 align-items: center;
+justify-content: space-between;
 gap: 2rem;
 width: 100%;
 `;
