@@ -28,3 +28,7 @@ export const ReviewImage = styled.img`
 export const ReviewItemName = styled.span`
 font-weight: bold;
 `;
+
+export const ReviewItemPrice = styled.span`
+font-weight: bold;
+`;

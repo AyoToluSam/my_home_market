@@ -4,6 +4,8 @@ import {ConfirmationWrapper, ConfirmationTag, Form, FormLabel, FormInput, FormBu
 import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
 import Review from '../Review/Review';
+import { paystack } from '@/utilities/paystack';
+
 
 
 const Confirmation = () => {
@@ -16,31 +18,42 @@ const Confirmation = () => {
 
   const {cartItems, cartQuantity, data} = useCart();
 
+  const totalPayment = cartItems.reduce(
+    (total, cartItem) => {
+      const item = data.find(item => item.id === cartItem.id)
+      return total + (item?.price || 0) * cartItem.quantity
+    }, 0)
+
   const {
     register,
     handleSubmit,
     formState: {errors}
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const paystackData = {
+      email: data.email,
+      amount: totalPayment*100
+    }
+
+    paystack(paystackData);
+    
+  };
 
   return (
     <ConfirmationWrapper>
+      <h2>Order Summary</h2>
       <Review />
       { isHydrated &&
         <ConfirmationTag>
           <h3>Paying for {cartQuantity} item{cartQuantity > 1 && "s"}: 
             <span>
-            Total = {formatCurrency(cartItems.reduce(
-                (total, cartItem) => {
-                  const item = data.find(item => item.id === cartItem.id)
-                  return total + (item?.price || 0) * cartItem.quantity
-                }, 0))}
+            Total = {formatCurrency(totalPayment)}
             </span>
           </h3>
         </ConfirmationTag>
       }
-      <h4>Enter your order details below.</h4>
+      <h4>Enter details for your order.</h4>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormLabel htmlFor="name">Name:</FormLabel>
         <FormInput

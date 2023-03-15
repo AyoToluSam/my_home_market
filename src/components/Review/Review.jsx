@@ -1,6 +1,9 @@
 import React from 'react'
 import { useCart } from '@/contexts/CartContext'
-import { ReviewList, ReviewItem, ReviewImage, ReviewItemName } from './ReviewStyles'
+import { ReviewList, ReviewItem, ReviewImage, ReviewItemName, ReviewItemPrice } from './ReviewStyles'
+import { formatCurrency } from '@/utilities/formatCurrency'
+
+
 
 const Review = () => {
 
@@ -22,6 +25,7 @@ const Review = () => {
                 x{item.quantity}
               </p>
             }
+            <ReviewItemPrice>{formatCurrency(cartItem.price * item.quantity)}</ReviewItemPrice>
           </ReviewItem>
         )
       })}
