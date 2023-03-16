@@ -5,10 +5,12 @@ import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
 import Review from '../Review/Review';
 import PaystackPop from '@paystack/inline-js'
-
+import { useRouter } from 'next/router';
 
 
 const Confirmation = () => {
+
+  const router = useRouter()
 
   const [isHydrated, setIsHydrated] = useState(false)
 
@@ -40,7 +42,7 @@ const Confirmation = () => {
       onSuccess(transaction){
         const message = `Payment complete! Refrence ${transaction.reference}`
         alert(message)
-
+        router.push("./order")
       },
       onCancel(){
         alert("You have canceled this transaction")
