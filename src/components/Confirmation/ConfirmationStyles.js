@@ -30,7 +30,7 @@ export const Form = styled.form`
   gap: 0.5rem;
 
   p {
-    color: red;
+    color: darkred;
   }
 `;
 

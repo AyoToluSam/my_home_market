@@ -29,8 +29,9 @@ const Confirmation = () => {
   const {
     register,
     handleSubmit,
-    formState: {errors}
-  } = useForm();
+    formState: {errors}, 
+    getValues
+  } = useForm({mode: "all"});
 
   const onSubmit = (data) => {
 
@@ -42,12 +43,19 @@ const Confirmation = () => {
       onSuccess(transaction){
         const message = `Payment complete! Refrence ${transaction.reference}`
         alert(message)
-        router.push("./order")
+        router.push("/order")
       },
       onCancel(){
         alert("You have canceled this transaction")
       }
     })
+  };
+
+  const validateEmail = (value) => {
+    const {email} = getValues()
+    if (value !== email) {
+      return false;
+    }
   };
 
   return (
@@ -65,11 +73,11 @@ const Confirmation = () => {
       }
       <h4>Enter details for your order.</h4>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormLabel htmlFor="name">Name:</FormLabel>
+        <FormLabel htmlFor="name">Full Name:</FormLabel>
         <FormInput
           type="text"
           {...register("name", {
-            required: "*Name is required",
+            required: "*Please enter your name",
             minLength: {
               value: 3,
               message: "*Name should be at least 3 characters"
@@ -82,7 +90,7 @@ const Confirmation = () => {
         <FormInput
           type="email"
           {...register("email", {
-            required: "*Email is required",
+            required: "*Please enter your email",
             pattern: {
               value: /^\S+@\S+$/i,
               message: "*Invalid email format"
@@ -90,15 +98,25 @@ const Confirmation = () => {
           })}
         />
         {errors.email && <p>{errors.email.message}</p>}
+
+              
+      <FormLabel htmlFor="emailConfirmation">Confirm email</FormLabel>
+      <FormInput 
+      type="email"           
+      {...register("emailConfirmation", {
+        required: true,
+        validate: validateEmail
+      })} />
+      {errors.emailConfirmation && <p>*Please enter a matching email</p>}
         
         <FormLabel htmlFor="phone">Phone number:</FormLabel>
         <FormInput
           type="text"
           {...register("phone", {
-            required: "*Phone number is required",
+            required: "*Please enter a valid phone number",
             pattern: {
               value: /^[\+]?[2-4]{3}?[0-9]{10}$/,
-              message: "Please enter a valid phone number"
+              message: "Invalid phone number"
             },
             minLength: {
               value: 11,

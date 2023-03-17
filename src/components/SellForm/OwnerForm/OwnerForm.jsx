@@ -1,13 +1,13 @@
 
 
-const OwnerForm = ({register, errors, banks, validateAccount}) => {
+const OwnerForm = ({register, errors, banks, validateAccount, validateEmail}) => {
 
 
   return (
     <>
       <label htmlFor="fullName">Full Name</label>
       <input {...register("fullName", { required: true })} />
-      {errors.fullName && <span>*This field is required</span>}
+      {errors.fullName && <span>*Enter your full name</span>}
       
       <label htmlFor="email">Email</label>
       <input 
@@ -19,15 +19,24 @@ const OwnerForm = ({register, errors, banks, validateAccount}) => {
         message: "*Invalid email format"
         }
       })} />
-      {errors.email && <span>*This field is required</span>}
+      {errors.email && <span>*Enter your email</span>}
+      
+      <label htmlFor="emailConfirmation">Confirm email</label>
+      <input 
+      type={"email"}           
+      {...register("emailConfirmation", {
+        required: true,
+        validate: validateEmail
+      })} />
+      {errors.email && <span>*Confirm your email</span>}
 
       <label htmlFor="phone">Phone Number</label>
       <input 
       {...register("phone", {
-        required: "*Phone number is required",
+        required: "*Please enter a +234 phone number",
         pattern: {
         value: /^[\+]?[2-4]{3}?[0-9]{10}$/,
-        message: "Please enter a valid phone number"
+        message: "Invalid phone number"
         },
         minLength: {
         value: 11,
@@ -43,7 +52,7 @@ const OwnerForm = ({register, errors, banks, validateAccount}) => {
             banks.map(bank => <option key={bank.id} value={bank.name}>{bank.name}</option>)
           }
         </datalist>
-      {errors.bank && <span>*This field is required</span>}
+      {errors.bank && <span>*Enter your bank name</span>}
 
       <label htmlFor="accountNo">Account Number</label>
       <input {...register("accountNo", { required: true, validate: validateAccount })} />

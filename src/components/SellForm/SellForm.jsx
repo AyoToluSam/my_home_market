@@ -20,6 +20,12 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     getBanks();
   }, [])
 
+  const validateEmail = (value) => {
+    const {email} = getValues()
+    if (value !== email) {
+      return false;
+    }
+  };
   
   const validateAccount = async (account) => {
 
@@ -45,7 +51,8 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     register, 
     handleSubmit, 
     setError, 
-    formState: { errors, isValid }, getValues 
+    formState: { errors, isValid }, 
+    getValues 
   } = useForm({mode: "all"});
 
   const onSubmit = async (data) => {
@@ -79,7 +86,13 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
 
   const formSteps = [
     <ProductForm register={register} errors={errors} />,
-    <OwnerForm register={register} errors={errors} banks={banks} validateAccount={validateAccount} />
+    <OwnerForm 
+      register={register} 
+      errors={errors} 
+      banks={banks} 
+      validateAccount={validateAccount} 
+      validateEmail={validateEmail}
+    />
   ]
 
   const formTitles = [
