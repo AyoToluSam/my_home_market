@@ -20,6 +20,16 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     getBanks();
   }, [])
 
+  const imgUrl = "https://via.placeholder.com/300x200.png?text=";
+
+  const { 
+    register, 
+    handleSubmit, 
+    setError, 
+    formState: { errors, isValid }, 
+    getValues 
+  } = useForm({mode: "all"});
+
   const validateEmail = (value) => {
     const {email} = getValues()
     if (value !== email) {
@@ -34,26 +44,18 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     const theBank = banks.find(findBank => findBank.name === bank)
     console.log(theBank)
 
-    const res = await fetch(`https://api.paystack.co/bank/resolve?account_number=${account}&bank_code=${theBank.code}`);
+    const res = await fetch(`https://api.paystack.co/bank/resolve?account_number=${account}&bank_code=${theBank.code}`, {
+      headers: {
+        "authorization": "Bearer sk_test_86b45b9499124dff2b0ed6419304e623b46fa797"
+      }
+    })
     const data = await res.json();
     console.log(data);
 
-    if (data.status) {
-      return
-    } else {
-      return "Enter a valid account number"
+    if (!data.status) {
+      return false
     }
   }
-
-  const imgUrl = "https://via.placeholder.com/300x200.png?text=";
-
-  const { 
-    register, 
-    handleSubmit, 
-    setError, 
-    formState: { errors, isValid }, 
-    getValues 
-  } = useForm({mode: "all"});
 
   const onSubmit = async (data) => {
     

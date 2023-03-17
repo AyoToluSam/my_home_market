@@ -43,6 +43,12 @@ export const NavTitles = styled.div`
     cursor: pointer;
     background-color: #fff;
   
+    &:first-child {
+      border: none;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    } 
+  
     &:last-child {
       border: none;
       border-top-right-radius: 8px;

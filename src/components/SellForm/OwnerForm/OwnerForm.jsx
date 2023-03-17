@@ -28,7 +28,7 @@ const OwnerForm = ({register, errors, banks, validateAccount, validateEmail}) =>
         required: true,
         validate: validateEmail
       })} />
-      {errors.email && <span>*Confirm your email</span>}
+      {errors.emailConfirmation && <span>*Enter a matching email</span>}
 
       <label htmlFor="phone">Phone Number</label>
       <input 
