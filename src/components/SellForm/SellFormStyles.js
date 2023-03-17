@@ -34,21 +34,25 @@ export const NavTitles = styled.div`
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: #ccc;
 
   h3 {
     padding: 2rem;
     height: 100%;
     border-right: 1px solid #ccc;
     cursor: pointer;
+    background-color: #fff;
   
     &:last-child {
       border: none;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
     } 
   }
 
   .active {
     color: #fff;
-    background-color: blue;
+    background-color: transparent;
   }
 `;
 

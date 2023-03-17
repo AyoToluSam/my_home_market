@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import { useMultiStepForm } from "@/utilities/useMultiStepForm";
 import { useForm } from "react-hook-form";
 import { Form, NavTitles, NavButtons } from "./SellFormStyles";
@@ -7,13 +8,44 @@ import ProductForm from "./ProductForm/ProductForm";
 
 const SellForm = ({setProductID, setLoading, setOpen}) => {
 
+  const [banks, setBanks] = useState()
+
+  const getBanks = async () => {
+    const res = await fetch("https://api.paystack.co/bank");
+    const {data} = await res.json();
+    setBanks(data);
+  }
+
+  useEffect(() => {
+    getBanks();
+  }, [])
+
+  
+  const validateAccount = async (account) => {
+
+    const {bank} = getValues()
+
+    const theBank = banks.find(findBank => findBank.name === bank)
+    console.log(theBank)
+
+    const res = await fetch(`https://api.paystack.co/bank/resolve?account_number=${account}&bank_code=${theBank.code}`);
+    const data = await res.json();
+    console.log(data);
+
+    if (data.status) {
+      return
+    } else {
+      return "Enter a valid account number"
+    }
+  }
+
   const imgUrl = "https://via.placeholder.com/300x200.png?text=";
 
   const { 
     register, 
     handleSubmit, 
     setError, 
-    formState: { errors, isValid } 
+    formState: { errors, isValid }, getValues 
   } = useForm({mode: "all"});
 
   const onSubmit = async (data) => {
@@ -47,7 +79,7 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
 
   const formSteps = [
     <ProductForm register={register} errors={errors} />,
-    <OwnerForm register={register} errors={errors} />
+    <OwnerForm register={register} errors={errors} banks={banks} validateAccount={validateAccount} />
   ]
 
   const formTitles = [
@@ -97,7 +129,8 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
           <button 
           disabled={!isValid} 
           onClick={next}>Next</button>
-          : <button 
+          : 
+          <button 
           disabled={!isValid} 
           onClick={handleSubmit(onSubmit)} >Submit</button>
         }
