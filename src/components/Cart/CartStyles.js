@@ -5,7 +5,7 @@ position: fixed;
 z-index: 1;
 top: 0;
 right: 0;
-padding: 1.4rem 2rem;
+padding: 1.3rem 2rem;
 height: 100%;
 min-width: max-content;
 background-color: #f2f2f2;
@@ -41,7 +41,7 @@ export const CloseContainer = styled.div`
 
 export const CloseButton = styled.div`
   font-size: 1.5rem;
-  padding: 0.3rem;
+  padding: 0.35rem;
   display: flex;
   align-items: center;
   justify-content: center;

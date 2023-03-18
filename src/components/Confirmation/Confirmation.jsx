@@ -4,21 +4,31 @@ import {ConfirmationWrapper, ConfirmationTag, Form, FormLabel, FormInput, FormBu
 import {useCart} from '@/contexts/CartContext';
 import {formatCurrency} from '@/utilities/formatCurrency';
 import Review from '../Review/Review';
-import PaystackPop from '@paystack/inline-js'
 import { useRouter } from 'next/router';
+// import dynamic from 'next/dynamic';
+
+
+// const PaystackPop = dynamic(() => import('@paystack/inline-js'), { ssr: false });
 
 
 const Confirmation = () => {
 
-  const router = useRouter()
-
-  const [isHydrated, setIsHydrated] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false);
+  
+  const [paystack, setPaystack] = useState(null);
 
   useEffect(() => {
     setIsHydrated(true);
+    const initPaystack = async () => {
+      const Paystack = await import('@paystack/inline-js');
+      setPaystack(new Paystack.default());
+    };
+    initPaystack();
   }, []);
 
-  const {cartItems, cartQuantity, data} = useCart();
+  const router = useRouter()
+
+  const {cartItems, cartQuantity, data, removeAll} = useCart();
 
   const totalPayment = cartItems.reduce(
     (total, cartItem) => {
@@ -35,20 +45,22 @@ const Confirmation = () => {
 
   const onSubmit = (data) => {
 
-    const paystack = new PaystackPop()
-    paystack.newTransaction({
-      key: 'sk_test_86b45b9499124dff2b0ed6419304e623b46fa797',
-      amount: totalPayment*100,
-      email: data.email,
-      onSuccess(transaction){
-        const message = `Payment complete! Refrence ${transaction.reference}`
-        alert(message)
-        router.push("/order")
-      },
-      onCancel(){
-        alert("You have canceled this transaction")
-      }
-    })
+    if (paystack) {
+      paystack.newTransaction({
+        key: `${process.env.privateKey}`,
+        amount: totalPayment*100,
+        email: data.email,
+        onSuccess(transaction){
+          const message = `Payment complete! Refrence ${transaction.reference}`
+          alert(message)
+          removeAll()
+          router.push("/order")
+        },
+        onCancel(){
+          alert("You have canceled this transaction")
+        }
+      })
+    }
   };
 
   const validateEmail = (value) => {
