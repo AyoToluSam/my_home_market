@@ -37,7 +37,7 @@ const Confirmation = () => {
 
     const paystack = new PaystackPop()
     paystack.newTransaction({
-      key: 'pk_test_64a90dc69ec7acaf8604ef64906b695ea742061d',
+      key: 'sk_test_86b45b9499124dff2b0ed6419304e623b46fa797',
       amount: totalPayment*100,
       email: data.email,
       onSuccess(transaction){
@@ -133,49 +133,3 @@ const Confirmation = () => {
 }
 
 export default Confirmation;
-
-{/* <FormLabel htmlFor="cardNumber">Credit Card Number:</FormLabel>
-<FormInput
-  {...register("cardNumber", {
-    required: "*Credit Card Number is required",
-    minLength: {
-      value: 16,
-      message: "*Credit Card Number should be 16 digits"
-  },
-    maxLength: {
-      value: 16,
-      message: "*Credit Card Number should be 16 digits"
-    }
-  })}
-/>
-{errors.cardNumber && <p>{errors.cardNumber.message}</p>}
-
-<FormLabel htmlFor="cvv">CVV:</FormLabel>
-<FormInput
-  type="text"
-  {...register("cvv", {
-    required: "*CVV is required",
-    minLength: {
-      value: 3,
-      message: "*CVV should be 3 digits"
-  },
-    maxLength: {
-      value: 3,
-      message: "*CVV should be 3 digits"
-    }
-  })}
-/>
-{errors.cvv && <p>{errors.cvv.message}</p>}
-
-<FormLabel htmlFor="expirationDate">Expiry Date:</FormLabel>
-<FormInput
-  type="text"
-  {...register("expirationDate", {
-    required: "*Expiration Date is required",
-    pattern: {
-      value: /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/,
-      message: "*Invalid expiration date format"
-  }
-  })}
-/>
-{errors.expirationDate && <p>{errors.expirationDate.message}</p>} */}

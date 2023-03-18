@@ -3,7 +3,7 @@ import React from 'react'
 const ProductForm = ({register, errors}) => {
   return (
     <>      
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">Name of Product</label>
       <input {...register("name", { required: true })} />
       {errors.name && <span>*This field is required</span>}
 

@@ -1,6 +1,21 @@
 import ProductDetail from '@/components/ProductDetail/ProductDetail'
+import { useRouter } from 'next/router';
+import {BlurBackground, Loading} from './productStyles'
+
 
 const Product = ({product}) => {
+
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <BlurBackground>
+        <Loading>
+          <img src="/Spinner.gif" alt="Loading"/>
+        </Loading>
+      </BlurBackground>
+    )
+  }
 
   return (
     <ProductDetail product={product} />
@@ -21,7 +36,7 @@ export async function getStaticPaths() {
  
   return {
     paths,
-    fallback: 'blocking'
+    fallback: true,
   }
 }
 

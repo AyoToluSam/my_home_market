@@ -25,7 +25,7 @@ const Sell = () => {
         <BlurBackground>
           { loading &&
             <Loading>
-              <img src="/Spinner-1.3s-200px.gif" alt="Loading"/>
+              <img src="/Spinner.gif" alt="Loading"/>
             </Loading>
           }
           { (open && !loading) &&
