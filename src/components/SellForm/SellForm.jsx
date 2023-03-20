@@ -99,8 +99,9 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
   }
 
   const formSteps = [
-    <ProductForm register={register} errors={errors} />,
-    <OwnerForm 
+    <ProductForm key={"product"} register={register} errors={errors} />,
+    <OwnerForm
+      key={"owner"} 
       register={register} 
       errors={errors} 
       banks={banks} 
