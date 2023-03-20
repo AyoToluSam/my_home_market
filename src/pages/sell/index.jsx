@@ -1,4 +1,4 @@
-import {SellWrapper, BlurBackground, Loading, Container} from './sellStyles';
+import {SellWrapper, BlurBackground, Loading, Container} from '../../styles/sellStyles';
 import { useState } from "react";
 import Link from "next/link";
 import SellForm from "@/components/SellForm/SellForm";

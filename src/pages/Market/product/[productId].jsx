@@ -1,6 +1,6 @@
 import ProductDetail from '@/components/ProductDetail/ProductDetail'
 import { useRouter } from 'next/router';
-import {BlurBackground, Loading} from './productStyles'
+import {BlurBackground, Loading} from '../../../styles/productStyles'
 
 
 const Product = ({product}) => {
