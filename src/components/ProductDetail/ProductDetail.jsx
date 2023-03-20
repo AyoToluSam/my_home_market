@@ -11,6 +11,10 @@ const ProductDetail = ({ product }) => {
     removeFromCart
   } = useCart()
 
+  if (!product) {
+    return null
+  }
+
   const quantity = getItemQuantity(product.id);
 
   return (
