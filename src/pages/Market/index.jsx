@@ -3,7 +3,9 @@ import ProductList from '@/components/ProductList/ProductList';
 
 const Market = () => {
   return (
-    <ProductList/>
+    <>
+      <ProductList />
+    </>
   )
 }
 

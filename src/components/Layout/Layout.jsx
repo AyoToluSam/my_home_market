@@ -25,19 +25,19 @@ const Layout = ({ children }) => {
       <Header>
         <Logo src='/logo.png'></Logo>
         <Nav>
-          <Link className='navLink' href={"/"}>Home</Link>
-          <Link className='navLink' href={"/market"}>Market</Link>
-          <Link className='navLink' href={"/sell"}>Sell Product</Link>
-          <Link className='navLink' href={"/about"}>About</Link>
+          <Link className='navLink' href="/" >Home</Link>
+          <Link className='navLink' href="/market" >Market</Link>
+          <Link className='navLink' href="/sell" >Sell Product</Link>
+          <Link className='navLink' href="/about" >About</Link>
         </Nav>
         <SmallScreen>
           <p>Home</p>
           <RiArrowDropDownLine onClick={() => setOpenDrop(!openDrop)} className='dropdown' />
           { openDrop &&
             <ul>
-              <li><Link href={"/market"}>Market</Link></li>
-              <li><Link href={"/sell"}>Sell Product</Link></li>
-              <li><Link href={"/about"}>About</Link></li>
+              <li><Link href="/market" >Market</Link></li>
+              <li><Link href="/sell" >Sell Product</Link></li>
+              <li><Link href="/about" >About</Link></li>
             </ul>
           }
         </SmallScreen>
