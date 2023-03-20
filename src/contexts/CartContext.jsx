@@ -96,9 +96,14 @@ export const CartProvider = ({children}) => {
     setCartItems([]);
   }
 
-  const cartQuantity = cartItems.reduce(
-    (quantity, item) => item.quantity + quantity, 0 
-  )
+  const getCartQuantity = () => {
+    if (!cartItems) {
+      return 0;
+    }
+    return cartItems.reduce((quantity, item) => item.quantity + quantity, 0)
+  }
+
+  const cartQuantity = getCartQuantity()
 
   return (
     <CartContext.Provider 
