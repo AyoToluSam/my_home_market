@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { useMultiStepForm } from "@/utilities/useMultiStepForm";
 import { useForm } from "react-hook-form";
 import { Form, NavTitles, NavButtons } from "./SellFormStyles";
@@ -167,4 +167,4 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
   )
 }
 
-export default SellForm
+export default SellForm;
