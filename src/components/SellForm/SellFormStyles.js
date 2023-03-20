@@ -37,7 +37,7 @@ export const NavTitles = styled.div`
   background-color: #ccc;
 
   h3 {
-    padding: 2rem;
+    padding: 1rem 2rem;
     height: 100%;
     border-right: 1px solid #ccc;
     cursor: pointer;

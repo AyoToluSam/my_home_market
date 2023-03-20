@@ -30,11 +30,14 @@ export const Header = styled.header`
   .cart {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 680px) {
+    
+  }
 `;
 
-export const Logo = styled.h1`
-  font-size: 28px;
-  font-weight: bold;
+export const Logo = styled.img`
+  max-width: 40px;
 `;
 
 export const Nav = styled.nav`
@@ -42,12 +45,56 @@ export const Nav = styled.nav`
   align-items: center;
   font-weight: bold;
 
+  @media screen and (max-width: 680px) {
+    display: none;
+  }
+
   .navLink {
     color: #333;
     margin-left: 20px;
     text-decoration: none;
     &:hover {
       color: #666;
+    }
+  }
+`;
+
+export const SmallScreen = styled.div`
+
+  position: relative;
+  display: none;
+
+  @media screen and (max-width: 680px) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    background-color: transparent;
+  }
+
+  .dropdown {
+    font-size: 1.8rem;
+  }
+  
+  ul {
+    position: absolute;
+    min-width: max-content;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    bottom: -3rem;
+    right: -5rem;
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+
+    li {
+      list-style: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #ccc;
+      }
     }
   }
 `;
