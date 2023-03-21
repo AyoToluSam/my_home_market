@@ -5,10 +5,13 @@ import Cart from '../Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
 import {RiArrowDropDownLine} from 'react-icons/ri';
 import { useCart } from '@/contexts/CartContext';
+import { useRouter } from 'next/router';
 // import dynamic from 'next/dynamic';
 
 
 const Layout = ({ children }) => {
+
+  const router = useRouter()
 
   const {isOpen, openCart, cartQuantity} = useCart()
   
@@ -19,6 +22,11 @@ const Layout = ({ children }) => {
   useEffect(() => {
     setIsHydrated(true);
   }, []);
+
+  const handleDrop = (href) => {
+    router.push(href);
+    setOpenDrop(false);
+  }
 
   return (
     <BodyContainer>
@@ -31,13 +39,13 @@ const Layout = ({ children }) => {
           <Link className='navLink' href="/About" >About</Link>
         </Nav>
         <SmallScreen>
-          <p>Home</p>
+          <Link href="/" ><p>Home</p></Link>
           <RiArrowDropDownLine onClick={() => setOpenDrop(!openDrop)} className='dropdown' />
           { openDrop &&
             <ul>
-              <li><Link href="/market" >Market</Link></li>
-              <li><Link href="/sell" >Sell Product</Link></li>
-              <li><Link href="/about" >About</Link></li>
+              <li onClick={() => handleDrop("/Market")} >Market</li>
+              <li onClick={() => handleDrop("/sell")} >Sell Product</li>
+              <li onClick={() => handleDrop("/About")} >About</li>
             </ul>
           }
         </SmallScreen>

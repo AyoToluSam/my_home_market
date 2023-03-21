@@ -25,7 +25,7 @@ const ProductList = () => {
             <ProductImage src={product.image} alt={product.name} />
             <ProductName>{product.name}</ProductName>
             <ProductPrice>{formatCurrency(product.price)}</ProductPrice>
-            <Link href={`/market/product/${product.id}`}>View Details</Link>
+            <Link href={`/Market/product/${product.id}`}>View Details</Link>
             <div>
               {
                 quantity === 0 ?

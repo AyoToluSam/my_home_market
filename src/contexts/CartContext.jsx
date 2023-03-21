@@ -57,45 +57,39 @@ export const CartProvider = ({children}) => {
   }
 
   const increaseItemQuantity = (id) => {
-    if (cartItems) {
-      setCartItems( cartItems => {
-        if (cartItems.find(item => item.id === id) == null) {
-          return [...cartItems, {id, quantity: 1}]
-        } else {
-          return cartItems.map(item => {
-            if (item.id === id) {
-              return {...item, quantity: item.quantity + 1}
-            }
-            return item
-          })
-        }
-      })
-    }
+    setCartItems( cartItems => {
+      if (cartItems.find(item => item.id === id) == null) {
+        return [...cartItems, {id, quantity: 1}]
+      } else {
+        return cartItems.map(item => {
+          if (item.id === id) {
+            return {...item, quantity: item.quantity + 1}
+          }
+          return item
+        })
+      }
+    })
   }
 
   const decreaseItemQuantity = (id) => {
-    if (cartItems) {
-      setCartItems( cartItems => {
-        if (cartItems.find(item => item.id === id)?.quantity === 1) {
-          return cartItems.filter(item => item.id !== id)
-        } else {
-          return cartItems.map(item => {
-            if (item.id === id) {
-              return {...item, quantity: item.quantity - 1}
-            }
-            return item
-          })
-        }
-      })
-    }
+    setCartItems( cartItems => {
+      if (cartItems.find(item => item.id === id)?.quantity === 1) {
+        return cartItems.filter(item => item.id !== id)
+      } else {
+        return cartItems.map(item => {
+          if (item.id === id) {
+            return {...item, quantity: item.quantity - 1}
+          }
+          return item
+        })
+      }
+    })
   }
 
   const removeFromCart = (id) => {
-    if (cartItems) {
-      setCartItems( cartItems => {
-        return cartItems.filter(item => item.id !== id)
-      })
-    }
+    setCartItems( cartItems => {
+      return cartItems.filter(item => item.id !== id)
+    })
   }
 
   const removeAll = () => {
