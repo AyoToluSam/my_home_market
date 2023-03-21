@@ -26,9 +26,9 @@ const Layout = ({ children }) => {
         <Logo src='/logo.png'></Logo>
         <Nav>
           <Link className='navLink' href="/" >Home</Link>
-          <Link className='navLink' href="/market" >Market</Link>
+          <Link className='navLink' href="/Market" >Market</Link>
           <Link className='navLink' href="/sell" >Sell Product</Link>
-          <Link className='navLink' href="/about" >About</Link>
+          <Link className='navLink' href="/About" >About</Link>
         </Nav>
         <SmallScreen>
           <p>Home</p>
