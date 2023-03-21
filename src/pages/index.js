@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Head>
         <title>My Home Market</title>
-        <meta name="description" content="A market to buy and sell home equipment and appliances." />
+        <meta name="description" content="An online market to buy and sell home equipment and appliances." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
