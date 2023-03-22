@@ -25,7 +25,7 @@ const Product = ({product}) => {
 
 export async function getStaticPaths() {
   const res = await fetch("https://63f78f6ee8a73b486afaedef.mockapi.io/products");
-  const products = await res.json();
+  const products = await res.json()
   
   const paths = products.map((product) => ({
     params: {
@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { productId } = context.params;
+  const { productId } = context.params
 
   const res = await fetch(`https://63f78f6ee8a73b486afaedef.mockapi.io/products/${productId}`);
   const product = await res.json();
