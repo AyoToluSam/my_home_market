@@ -23,6 +23,7 @@ export const Container = styled.div`
 
 export const Search = styled.div`
   position: relative;
+  z-index: -1;
   
   input {
     border: 1px solid #ccc;

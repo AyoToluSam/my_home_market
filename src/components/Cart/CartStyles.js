@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CartContainer = styled.div`
 position: fixed;
-z-index: 1;
+z-index: 9;
 top: 0;
 right: 0;
 padding: 1.3rem 2rem;

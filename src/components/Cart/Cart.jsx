@@ -54,7 +54,7 @@ const Cart = () => {
       }
       <TotalContainer>
         <CartTotal>
-          Total: {formatCurrency(cartItems.reduce(
+          Total: {formatCurrency(cartItems?.reduce(
           (total, cartItem) => {
             const item = data.find(item => item.id === cartItem.id)
             return total + (item?.price || 0) * cartItem.quantity

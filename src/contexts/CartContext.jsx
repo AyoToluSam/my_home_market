@@ -58,7 +58,7 @@ export const CartProvider = ({children}) => {
 
   const increaseItemQuantity = (id) => {
     setCartItems( cartItems => {
-      if (cartItems.find(item => item.id === id) == null) {
+      if (cartItems?.find(item => item.id === id) == null) {
         return [...cartItems, {id, quantity: 1}]
       } else {
         return cartItems.map(item => {
