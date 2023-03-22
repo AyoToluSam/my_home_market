@@ -1,11 +1,9 @@
 import React from 'react'
 import { Container, Search } from './HomePageStyles'
 import {BiSearch} from 'react-icons/bi'
-import { useCart } from '@/contexts/CartContext'
+import Link from 'next/link'
 
 const HomePage = () => {
-
-  const {products} = useCart()
 
   return (
     <Container>
@@ -24,7 +22,7 @@ const HomePage = () => {
         <li>Inspection.....</li>
         <li>Pickup or Delivery.....</li>
       </ul>
-      <button>Start shopping</button>
+      <Link href="/Market" ><button>Start shopping</button></Link>
       <h2>Frequently asked questions</h2>
       <ul>
         <li>...</li>
