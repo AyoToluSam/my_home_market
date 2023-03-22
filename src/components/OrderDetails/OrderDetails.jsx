@@ -13,7 +13,7 @@ const OrderDetails = () => {
        Please read our Operation Model on getting your orders again 
        by clicking <Link href="">here</Link>.
       </p>
-      <Link href="/market"><button>Continue Shopping</button></Link>
+      <Link href="/Market"><button>Continue Shopping</button></Link>
     </Wrapper>
   )
 }

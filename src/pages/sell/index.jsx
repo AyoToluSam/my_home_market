@@ -32,7 +32,7 @@ const Sell = () => {
             <Container>
               <h2>Success!</h2>
               <p>Your product has been added to the market.</p>
-              <Link href={`/market/product/${productID}`}><button>View Product</button></Link>
+              <Link href={`/Market/product/${productID}`}><button>View Product</button></Link>
             </Container>
           }
         </BlurBackground>
