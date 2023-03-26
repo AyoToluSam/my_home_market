@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import {BodyContainer, Header, Logo, Nav, SmallScreen, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
-import Cart from '../Cart/Cart';
+import Cart from '../components/Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
 import {RiArrowDropDownLine} from 'react-icons/ri';
 import { useCart } from '@/contexts/CartContext';
