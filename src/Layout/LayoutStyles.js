@@ -23,7 +23,7 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  background-color: #f2f2f2;
+  background-color: #fff; 
   padding: 2rem;
   box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.04);
 
@@ -36,6 +36,12 @@ export const Header = styled.header`
   }
 `;
 
+export const LogoNav = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+`;
+
 export const Logo = styled.img`
   max-width: 40px;
 `;
@@ -43,18 +49,32 @@ export const Logo = styled.img`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;
-  font-weight: bold;
+  gap: 1.5rem;
 
   @media screen and (max-width: 680px) {
     display: none;
   }
 
   .navLink {
-    color: #333;
-    margin-left: 20px;
     text-decoration: none;
+    transition: 0.5s linear;
+
     &:hover {
-      color: #666;
+      transform: translate(0, -20%);
+      transition: 0.5s linear;
+    }
+  }
+
+  .active {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1rem 0;
+    border-bottom: 2px solid #000;
+    transition: 0.5s linear;
+
+    &:hover {
+      transform: translate(0, -10%);
+      transition: 0.5s linear;
     }
   }
 `;

@@ -1,17 +1,20 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import {BodyContainer, Header, Logo, Nav, SmallScreen, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
+import {BodyContainer, Header, LogoNav, Logo, Nav, SmallScreen, CartContainer, ItemCount, Container, Footer} from './LayoutStyles'
 import Cart from '../components/Cart/Cart';
 import {BsCartFill} from 'react-icons/bs';
 import {RiArrowDropDownLine} from 'react-icons/ri';
 import { useCart } from '@/contexts/CartContext';
 import { useRouter } from 'next/router';
+import { useActive } from '@/contexts/ActiveContext';
 // import dynamic from 'next/dynamic';
 
 
 const Layout = ({ children }) => {
 
   const router = useRouter()
+
+  const {active, setActive} = useActive()
 
   const {isOpen, openCart, cartQuantity} = useCart()
   
@@ -31,13 +34,15 @@ const Layout = ({ children }) => {
   return (
     <BodyContainer>
       <Header>
-        <Logo src='/logo.png'></Logo>
-        <Nav>
-          <Link className='navLink' href="/" >Home</Link>
-          <Link className='navLink' href="/Market" >Market</Link>
-          <Link className='navLink' href="/sell" >Sell Product</Link>
-          <Link className='navLink' href="/About" >About</Link>
-        </Nav>
+        <LogoNav>
+          <Logo src='/logo.png'></Logo>
+          <Nav>
+            <Link className={active == 1 ? "active" : 'navLink'} onClick={() => setActive(1)} href="/" >Home</Link>
+            <Link className={active == 2 ? "active" : 'navLink'} onClick={() => setActive(2)} href="/Market" >Market</Link>
+            <Link className={active == 3 ? "active" : 'navLink'} onClick={() => setActive(3)} href="/sell" >Sell Product</Link>
+            <Link className={active == 4 ? "active" : 'navLink'} onClick={() => setActive(4)} href="/About" >About</Link>
+          </Nav>
+        </LogoNav>
         <SmallScreen>
           <Link href="/" ><p>Home</p></Link>
           <RiArrowDropDownLine onClick={() => setOpenDrop(!openDrop)} className='dropdown' />

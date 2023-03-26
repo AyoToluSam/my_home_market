@@ -25,7 +25,7 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;  
   margin: 0;
   padding: 0;
 }
