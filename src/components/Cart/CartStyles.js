@@ -8,7 +8,7 @@ right: 0;
 padding: 1.3rem 2rem;
 height: 100%;
 min-width: max-content;
-background-color: #f2f2f2;
+background-color: #fff;
 box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
 display: flex;
 flex-direction: column;
@@ -49,10 +49,9 @@ export const CloseButton = styled.div`
   border-radius: 50%;
   cursor: pointer;
 
-  
   &:hover {
-    color: #666;
-    border: 1px solid #666;
+    color: #644D3B;
+    border: 1px solid #644D3B;
   }
 `;
 
