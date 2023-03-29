@@ -69,7 +69,7 @@ export const Nav = styled.nav`
     text-decoration: none;
     font-weight: 600;
     padding: 0.8rem 0;
-    border-bottom: 2px solid #000;
+    border-bottom: 1.5px solid #000;
     transition: 0.5s linear;
 
     &:hover {

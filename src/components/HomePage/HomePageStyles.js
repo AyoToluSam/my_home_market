@@ -128,6 +128,7 @@ export const SalesBanner = styled.div`
     button {
       color: #fff;
       background-color: #000;
+      border: none;
       border-radius: 0.1rem;
       padding: 0.4rem 1.8rem;
       letter-spacing: 0.5px;
