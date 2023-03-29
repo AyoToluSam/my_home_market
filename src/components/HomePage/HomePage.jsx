@@ -11,7 +11,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const HomePage = () => {
 
-  const slideItems = ["/banner.webp", "/banner.webp", "/banner.webp"];
+  const slideItems = ["/banner.webp", "/banner1.webp", "/banner2.webp"];
 
   const [activeItem, setActiveItem] = useState(0);
 

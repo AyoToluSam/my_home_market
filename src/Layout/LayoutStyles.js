@@ -60,7 +60,7 @@ export const Nav = styled.nav`
     transition: 0.5s linear;
 
     &:hover {
-      transform: translate(0, -20%);
+      transform: scale(1.1);
       transition: 0.5s linear;
     }
   }
@@ -73,7 +73,7 @@ export const Nav = styled.nav`
     transition: 0.5s linear;
 
     &:hover {
-      transform: translate(0, -10%);
+      transform: scale(1.1);
       transition: 0.5s linear;
     }
   }
@@ -130,7 +130,7 @@ export const CartContainer = styled.div`
   transition: 0.3s linear;
   
   &:hover {
-    color: #644D3B;
+    transform: scale(1.1);
     transition: 0.3s linear;
   }
 `;
@@ -159,6 +159,7 @@ export const Footer = styled.footer`
   margin-top: auto;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   background-color: #000;
   color: #fff;
 `;
@@ -228,7 +229,15 @@ export const Payments = styled.div`
     gap: 0.8rem;
 
     img {
-      max-width: 60px;
+      max-width: 80px;
+      margin: auto 0;
+
+      &:nth-child(2) {
+        width: 28px;
+      }
+      &:nth-child(3) {
+        width: 60px;
+      }
     }
   }
 `;
