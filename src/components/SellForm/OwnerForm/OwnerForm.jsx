@@ -13,7 +13,7 @@ const OwnerForm = ({register, errors, banks, validateAccount, validateEmail}) =>
       <input 
       type={"email"}           
       {...register("email", {
-        required: "*Email is required",
+        required: true,
         pattern: {
         value: /^\S+@\S+$/i,
         message: "*Invalid email format"
@@ -33,9 +33,9 @@ const OwnerForm = ({register, errors, banks, validateAccount, validateEmail}) =>
       <label htmlFor="phone">Phone Number</label>
       <input 
       {...register("phone", {
-        required: "*Please enter a +234 phone number",
+        required: true,
         pattern: {
-        value: /^[\+]?[2-4]{3}?[0-9]{10}$/,
+        value: /^(0|\+234)[789][01]\d{8}$/,
         message: "Invalid phone number"
         },
         minLength: {
@@ -43,7 +43,7 @@ const OwnerForm = ({register, errors, banks, validateAccount, validateEmail}) =>
         message: "Incomplete phone number"
         }
       })} />
-      {errors.phone && <span>*This field is required</span>}
+      {errors.phone && <span>*Enter a valid phone number</span>}
 
       <label htmlFor="bank">Bank</label>
       <input list="bank" {...register("bank", { required: true })} />

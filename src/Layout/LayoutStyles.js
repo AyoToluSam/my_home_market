@@ -208,6 +208,7 @@ export const Contact = styled.div`
     font-size: 12px;
     font-weight: 300;
     line-height: 18px;
+    max-width: 60%;
   }
 `;
 

@@ -24,7 +24,7 @@ const ProductList = () => {
       <Banner>
         <div className='sales'>
           <h3>Shop Home Equipment & Accessories</h3>
-          <p>Flash sales with 15% off between 16th July and 21st July.</p>
+          <p>Flash sales with 15% off between 16<sup>th</sup> July and 21<sup>st</sup> July.</p>
           <button>Shop Now</button>
         </div>
         <img src="/marketbanner.webp" alt="" />
