@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-
+import Script from 'next/script'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <Script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript" />
         </body>
       </Html>
     );

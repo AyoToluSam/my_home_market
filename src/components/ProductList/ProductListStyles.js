@@ -2,14 +2,21 @@ import styled from 'styled-components';
 
 export const ProductListContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem;
+  flex-direction: column;
   gap: 2rem;
+  padding: 2rem;
+  background: rgba(217, 217, 217, 0.25);
+`;
+
+export const Products = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 `;
 
 export const ProductCard = styled.div`
-  width: 300px;
+  max-width: 300px;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -37,7 +44,6 @@ export const ProductCard = styled.div`
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: 200px;
   object-fit: cover;
   border-radius: 5px;
 `;
@@ -137,8 +143,8 @@ export const Category = styled.ul`
 
   li {
     list-style: none;
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 400;
     padding: 0.5rem 0;
   }
 
@@ -156,8 +162,15 @@ export const SearchGroup = styled.div`
 
   .search {
     position: absolute;
-    right: 0.5rem;
+    right: 1rem;
     color: #000;
+    cursor: pointer;
+    transition: 0.3s linear;
+
+    &:hover {
+      transform: scale(1.15);
+      transition: 0.3s linear;
+    }
   }
 
   input {

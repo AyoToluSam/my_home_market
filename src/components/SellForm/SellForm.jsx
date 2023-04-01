@@ -4,9 +4,22 @@ import { useForm } from "react-hook-form";
 import { Form, NavTitles, NavButtons } from "./SellFormStyles";
 import OwnerForm from "./OwnerForm/OwnerForm";
 import ProductForm from "./ProductForm/ProductForm";
+import Script from 'next/script';
+// import * as Yup from "yup";
 
+// const schema = Yup.object().shape({
+//   image: Yup.mixed()
+//     .required("Please upload an image")
+//     .test(
+//       "image",
+//       "Please upload an image",
+//       (value) => typeof value === "string"
+//     ),
+// });
 
 const SellForm = ({setProductID, setLoading, setOpen}) => {
+
+  const [imageUrl, setImageUrl] = useState("");
 
   const [banks, setBanks] = useState()
 
@@ -27,6 +40,12 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     formState: { errors, isValid }, 
     getValues 
   } = useForm({mode: "all"});
+
+  const validateImage = () => {
+    if (typeof imageUrl !== "string") {
+      return false;
+    }
+  };
 
   const validateEmail = (value) => {
     const {email} = getValues()
@@ -99,16 +118,23 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
   }
 
   const formSteps = [
-    <ProductForm key={"product"} register={register} errors={errors} />,
+    <ProductForm
+      key={"product"}
+      register={register}
+      errors={errors}
+      setImageUrl={setImageUrl}
+      imageUrl={imageUrl}
+      validateImage={validateImage}
+    />,
     <OwnerForm
-      key={"owner"} 
-      register={register} 
-      errors={errors} 
-      banks={banks} 
-      validateAccount={validateAccount} 
+      key={"owner"}
+      register={register}
+      errors={errors}
+      banks={banks}
+      validateAccount={validateAccount}
       validateEmail={validateEmail}
-    />
-  ]
+    />,
+  ];
 
   const formTitles = [
     "Product Details",
@@ -128,6 +154,7 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
 
   return (
     <>
+      <Script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript" />
       <Form>
         <NavTitles>
           {

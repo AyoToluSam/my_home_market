@@ -1,5 +1,5 @@
-import {ProductListContainer, ProductCard, ProductImage, ProductName, 
-ProductPrice, AddToCart, QuantityButton, RemoveButton,
+import {ProductListContainer, Products, ProductCard, ProductImage, 
+ProductName, ProductPrice, AddToCart, QuantityButton, RemoveButton,
 MarketContainer, Banner, MarketBody, Category, SearchGroup} from './ProductListStyles'
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext'
@@ -42,31 +42,34 @@ const ProductList = () => {
           <input type="text" placeholder='What are you looking for?' />
         </SearchGroup>
         <ProductListContainer>
-          {data.map((product) => {
-            const quantity = getItemQuantity(product.id);
-            return (
-              <ProductCard key={product.id}>
-                <ProductImage src={product.image} alt={product.name} />
-                <ProductName>{product.name}</ProductName>
-                <ProductPrice>{formatCurrency(product.price)}</ProductPrice>
-                <Link href={`/Market/product/${product.id}`}>View Details</Link>
-                <div>
-                  {
-                    quantity === 0 ?
-                    (<AddToCart onClick={() => increaseItemQuantity(product.id)}> + Add To Cart</AddToCart>) : 
-                    (<div className='allButtons'>
-                      <div className='quantityButtons'>
-                        <QuantityButton onClick={() => decreaseItemQuantity(product.id)}>-</QuantityButton>
-                        <p><span>{quantity}</span>in cart</p>
-                        <QuantityButton onClick={() => increaseItemQuantity(product.id)}>+</QuantityButton>
-                      </div>
-                      <RemoveButton onClick={() => removeFromCart(product.id)}>Remove</RemoveButton>
-                    </div>)
-                  }
-                </div>
-              </ProductCard>
-            )
-          })}
+          <h5>Featured Products</h5>
+          <Products>
+            {data.map((product) => {
+              const quantity = getItemQuantity(product.id);
+              return (
+                <ProductCard key={product.id}>
+                  <ProductImage src={product.image} alt={product.name} />
+                  <ProductName>{product.name}</ProductName>
+                  <ProductPrice>{formatCurrency(product.price)}</ProductPrice>
+                  <Link href={`/Market/product/${product.id}`}>View Details</Link>
+                  <div>
+                    {
+                      quantity === 0 ?
+                      (<AddToCart onClick={() => increaseItemQuantity(product.id)}> + Add To Cart</AddToCart>) : 
+                      (<div className='allButtons'>
+                        <div className='quantityButtons'>
+                          <QuantityButton onClick={() => decreaseItemQuantity(product.id)}>-</QuantityButton>
+                          <p><span>{quantity}</span>in cart</p>
+                          <QuantityButton onClick={() => increaseItemQuantity(product.id)}>+</QuantityButton>
+                        </div>
+                        <RemoveButton onClick={() => removeFromCart(product.id)}>Remove</RemoveButton>
+                      </div>)
+                    }
+                  </div>
+                </ProductCard>
+              )
+            })}
+          </Products>
         </ProductListContainer>
       </MarketBody>
     </MarketContainer>
