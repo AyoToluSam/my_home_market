@@ -13,7 +13,7 @@ import Script from 'next/script';
 //     .test(
 //       "image",
 //       "Please upload an image",
-//       (value) => typeof value === "string"
+//       (value) => typeof value === "string" && value.length
 //     ),
 // });
 
@@ -41,12 +41,6 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     getValues 
   } = useForm({mode: "all"});
 
-  const validateImage = () => {
-    if (typeof imageUrl !== "string") {
-      return false;
-    }
-  };
-
   const validateEmail = (value) => {
     const {email} = getValues()
     if (value !== email) {
@@ -72,14 +66,12 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
     }
   }
 
-  const imgUrlTemplate = "https://via.placeholder.com/300x200.png?text=";
-
   const onSubmit = async (data) => {
 
     const newData = {
       name: data.name,
       price: data.price,
-      image: imgUrlTemplate + data.name.replaceAll(" ", "+"),
+      image: imageUrl,
       description: data.description,
       condition: data.condition,
       location: data.location,
@@ -124,7 +116,6 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
       errors={errors}
       setImageUrl={setImageUrl}
       imageUrl={imageUrl}
-      validateImage={validateImage}
     />,
     <OwnerForm
       key={"owner"}
@@ -182,7 +173,7 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
         }
         {!isLastStep ?
           <button 
-          disabled={!isValid} 
+          disabled={!isValid || !imageUrl} 
           onClick={next}>Next</button>
           : 
           <button 

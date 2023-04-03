@@ -10,7 +10,7 @@ const UploadWidget = ({setImageUrl, imageUrl}) => {
 
   useEffect(() => {
     cloudinaryRef.current = window.cloudinary;
-    widgetRef.current = cloudinaryRef.current.createUploadWidget({
+    widgetRef.current = cloudinaryRef.current?.createUploadWidget({
       cloudName: "dhyopp1tf",
       uploadPreset: "rp7fs59d",
     }, function(error, result) {
@@ -18,13 +18,12 @@ const UploadWidget = ({setImageUrl, imageUrl}) => {
       if (!error && result && result.event === "success") {
         setImageUrl(result.info.secure_url);
         console.log(imageUrl);
-        console.log(result.info.secure_url);
       }
     })
   }, [])
 
   return (
-    <Upload onClick={() => widgetRef.current.open()}>
+    <Upload onClick={() => widgetRef.current?.open()}>
       <MdOutlineFileUpload/>
       <h5>Upload Image</h5>
     </Upload>

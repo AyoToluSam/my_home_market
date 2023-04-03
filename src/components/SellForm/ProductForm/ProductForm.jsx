@@ -1,6 +1,4 @@
-import React from 'react'
 import UploadWidget from '@/components/UploadWidget/UploadWidget'
-import Script from 'next/script';
 
 
 const ProductForm = ({
@@ -8,8 +6,9 @@ const ProductForm = ({
   errors,
   imageUrl,
   setImageUrl,
-  validateImage,
 }) => {
+
+
   return (
     <>
       <label htmlFor="name">Name of Product</label>
@@ -44,18 +43,14 @@ const ProductForm = ({
       <label htmlFor="location">Location</label>
       <input {...register("location", { required: true })} />
       {errors.location && <span>*This field is required</span>}
-      
-      <UploadWidget setImageUrl={setImageUrl} imageUrl={imageUrl} />
-      <label htmlFor="image">Image</label>
-      <input
-        value={imageUrl}
-        {...register("image", {
-          required: true,
-          validate: validateImage,
-        })}
+
+      <UploadWidget
+        setImageUrl={setImageUrl}
+        imageUrl={imageUrl}
       />
-      {!imageUrl && 
-      <span>*Upload an image of the product. (Less than 10MB)</span>}
+      {!imageUrl && (
+        <span>*Upload an image of the product. (Less than 10MB)</span>
+      )}
     </>
   );
 };
