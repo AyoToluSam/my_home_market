@@ -5,23 +5,13 @@ import { Form, NavTitles, NavButtons } from "./SellFormStyles";
 import OwnerForm from "./OwnerForm/OwnerForm";
 import ProductForm from "./ProductForm/ProductForm";
 import Script from 'next/script';
-// import * as Yup from "yup";
 
-// const schema = Yup.object().shape({
-//   image: Yup.mixed()
-//     .required("Please upload an image")
-//     .test(
-//       "image",
-//       "Please upload an image",
-//       (value) => typeof value === "string" && value.length
-//     ),
-// });
 
 const SellForm = ({setProductID, setLoading, setOpen}) => {
 
   const [imageUrl, setImageUrl] = useState("");
 
-  const [banks, setBanks] = useState()
+  const [banks, setBanks] = useState();
 
   const getBanks = async () => {
     const res = await fetch("https://api.paystack.co/bank");
@@ -50,7 +40,7 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
   
   const validateAccount = async (account) => {
 
-    const {bank} = getValues()
+    const {bank} = getValues();
 
     const theBank = banks.find(findBank => findBank.name === bank)
 
