@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef} from 'react';
 import { Container, Hero, HomeBody, SalesBanner, CarouselImage, 
 CarouselButtons, CarouselButton, CarouselButtonDot, Operation,
-MarketGallery, FAQ } from './HomePageStyles'
-import {BiSearch} from 'react-icons/bi'
-import {RiArrowDropDownLine} from 'react-icons/ri'
-import Link from 'next/link'
+MarketGallery, FAQ } from './HomePageStyles';
+import {BiSearch} from 'react-icons/bi';
+import {RiArrowDropDownLine} from 'react-icons/ri';
+import Link from 'next/link';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 

@@ -1,4 +1,4 @@
-import UploadWidget from '@/components/UploadWidget/UploadWidget'
+import UploadWidget from '@/components/UploadWidget/UploadWidget';
 
 
 const ProductForm = ({
@@ -55,4 +55,4 @@ const ProductForm = ({
   );
 };
 
-export default ProductForm
+export default ProductForm;
