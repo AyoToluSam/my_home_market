@@ -42,13 +42,16 @@ const SellForm = ({setProductID, setLoading, setOpen}) => {
 
     const {bank} = getValues();
 
-    const theBank = banks.find(findBank => findBank.name === bank)
+    const theBank = banks.find(findBank => findBank.name === bank);
 
-    const res = await fetch(`https://api.paystack.co/bank/resolve?account_number=${account}&bank_code=${theBank.code}`, {
-      headers: {
-        "authorization": `Bearer ${process.env.secretKey}`
+    const res = await fetch(
+      `https://api.paystack.co/bank/resolve?account_number=${account}&bank_code=${theBank.code}`,
+      {
+        headers: {
+          authorization: `Bearer ${process.env.secretKey}`,
+        },
       }
-    })
+    );
     const data = await res.json();
 
     if (!data.status) {
