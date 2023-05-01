@@ -6,7 +6,6 @@ const About = () => {
     <>
       <Container>
         <h1>About</h1>
-        <p>Watch this space...</p>
         <p>Going live very soon!</p>
       </Container>
     </>
