@@ -82,7 +82,8 @@ export const AddToCart = styled.button`
 export const QuantityButton = styled.button`
   padding: 0.2rem 0.5rem;
   border: none;
-  border-radius: 4px;
+  background: #000;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
 `;
@@ -90,8 +91,10 @@ export const QuantityButton = styled.button`
 export const RemoveButton = styled.button`
   padding: 0.5rem 1rem;
   background-color: darkred;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   border: none;
-  border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
 `;
