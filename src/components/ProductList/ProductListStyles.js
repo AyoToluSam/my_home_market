@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProductListContainer = styled.div`
   display: flex;
@@ -29,31 +29,43 @@ export const ProductCard = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-  
+
     .quantityButtons {
       display: flex;
       gap: 1rem;
-  
+
       span {
         font-weight: bold;
         margin-right: 0.4rem;
       }
     }
   }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    transition: linear 0.3s;
+    &:hover {
+      transform: translateX(4px);
+      transition: linear 0.3s;
+    }
+  }
 `;
 
 export const ProductImage = styled.img`
-  width: 100%;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   border-radius: 5px;
 `;
 
-export const ProductName = styled.h2`
-  font-size: 20px;
+export const ProductName = styled.p`
+  font-size: 14px;
 `;
 
 export const ProductPrice = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 `;
 
@@ -61,8 +73,9 @@ export const AddToCart = styled.button`
   width: 100%;
   padding: 0.5rem;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  background-color: #000;
+  color: #fff;
+  letter-spacing: 0.5px;
   cursor: pointer;
 `;
 
@@ -179,9 +192,9 @@ export const SearchGroup = styled.div`
     border-radius: 6px;
     width: 100%;
     padding: 0.8rem 1rem;
-    color:rgba(89, 89, 94, 1);
+    color: rgba(89, 89, 94, 1);
     font-size: 11px;
-    letter-spacing: 0 .5px;
+    letter-spacing: 0 0.5px;
 
     &:focus {
       outline: none;
@@ -189,16 +202,3 @@ export const SearchGroup = styled.div`
     }
   }
 `;
-
-
-
-
-
-
-
-
-
-
-
-
-

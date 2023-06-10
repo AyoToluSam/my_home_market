@@ -80,9 +80,9 @@ export const Hero = styled.div`
         border-radius: 6px;
         width: 100%;
         padding: 0.8rem 2rem;
-        color:rgba(89, 89, 94, 1);
+        color: rgba(89, 89, 94, 1);
         font-size: 11px;
-        letter-spacing: 0 .5px;
+        letter-spacing: 0 0.5px;
 
         &:focus {
           outline: none;
@@ -110,19 +110,13 @@ export const SalesBanner = styled.div`
   .sales {
     position: absolute;
     z-index: 2;
-    width: 32%;
-    max-width: 216px;
     right: 12.5%;
 
-    h3 {
-      line-height: 24px;
-    }
-
     p {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       line-height: 20px;
-      margin: 0.5rem 0;
+      margin: 0.8rem 0 1rem;
     }
 
     button {
@@ -132,8 +126,8 @@ export const SalesBanner = styled.div`
       border-radius: 0.1rem;
       padding: 0.4rem 1.8rem;
       letter-spacing: 0.5px;
-      font-size: 11px;
-      font-weight: 100;
+      font-size: 13px;
+      font-weight: 500;
     }
   }
 `;
@@ -141,7 +135,7 @@ export const SalesBanner = styled.div`
 export const CarouselImage = styled.img`
   width: 100%;
   cursor: pointer;
-  display: ${(props) => props.active === props.index ? `flex` : `none`};
+  display: ${(props) => (props.active === props.index ? `flex` : `none`)};
 `;
 
 export const CarouselButtons = styled.div`
@@ -155,8 +149,9 @@ export const CarouselButton = styled.button`
   border: none;
   padding: 4px;
   cursor: pointer;
-  opacity: ${(props) => props.active === props.index ? `1` : `.33`};
-  transform: ${(props) => props.active === props.index ? `scale(1.6)` : `scale(1)`};
+  opacity: ${(props) => (props.active === props.index ? `1` : `.33`)};
+  transform: ${(props) =>
+    props.active === props.index ? `scale(1.6)` : `scale(1)`};
 
   &:focus {
     outline: none;
@@ -231,7 +226,6 @@ export const MarketGallery = styled.div`
   @media screen and (max-width: 680px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
-
   }
 
   div {
@@ -293,7 +287,7 @@ export const FAQ = styled.div`
       list-style: none;
       padding: 0.8rem 1.5rem;
       width: 100%;
-      background: #F5F5F7;
+      background: #f5f5f7;
       border: 1px solid rgba(17, 59, 109, 0.17);
       border-radius: 4px;
       display: flex;
