@@ -14,7 +14,7 @@ const Banner = () => {
         </p>
         <button>Apply</button>
       </div>
-      <img src="/banner3.webp" alt="" />
+      <img src="/banner3.webp" alt="Banner" />
     </BannerWrapper>
   );
 };

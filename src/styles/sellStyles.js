@@ -1,12 +1,24 @@
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 export const SellWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+`;
+
+export const SellBody = styled.div`
   padding: 2rem;
+
+  .background {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    background: rgba(245, 245, 245, 0.7);
+
+    p {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 export const BlurBackground = styled.div`
@@ -21,7 +33,6 @@ export const BlurBackground = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
 
 export const Loading = styled.div`
   position: fixed;
