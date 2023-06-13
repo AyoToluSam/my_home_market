@@ -13,6 +13,10 @@ export const Form = styled.form`
     gap: 1.5rem;
     width: 100%;
     /* padding: 0 10rem; */
+
+    p {
+      margin: 0;
+    }
   }
 
   input,
@@ -26,6 +30,10 @@ export const Form = styled.form`
     &:focus {
       outline: none;
     }
+  }
+
+  select {
+    cursor: pointer;
   }
 
   span {
@@ -87,15 +95,23 @@ export const NavTitles = styled.div`
 export const NavButtons = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 2rem;
+  padding: 0 12rem;
+  margin-top: 1rem;
 
   button {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 4rem;
     border-radius: 0.25rem;
+    background-color: #000000;
+    color: #fff;
     border: none;
     font-weight: bold;
     cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 `;
 

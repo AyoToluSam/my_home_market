@@ -1,3 +1,4 @@
+import Upload from "@/components/Upload/Upload";
 import UploadWidget from "@/components/UploadWidget/UploadWidget";
 
 const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
@@ -64,11 +65,11 @@ const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
         />
         {errors.location && <span>*This field is required</span>}
       </div>
-
-      <UploadWidget setImageUrl={setImageUrl} imageUrl={imageUrl} />
+      <Upload />
+      {/* <UploadWidget setImageUrl={setImageUrl} imageUrl={imageUrl} />
       {!imageUrl && (
         <span>*Upload an image of the product. (Less than 10MB)</span>
-      )}
+      )} */}
     </div>
   );
 };

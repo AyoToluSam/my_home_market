@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TbCloudUpload } from "react-icons/tb";
+import { RxCross2 } from "react-icons/rx";
 import { Uploaded, Click } from "./UploadStyles";
 
 const Upload = () => {
@@ -43,38 +44,46 @@ const Upload = () => {
       setErrMsg("Maximum file size is 2MB.");
     }
   };
+
+  useEffect(() => {}, [uploadedFile]);
+
   return uploadedFile ? (
     <Uploaded>
       <img src={URL.createObjectURL(uploadedFile)} alt="Uploaded" />
       <button onClick={() => setUploadedFile(null)}>
+        <span>
+          <RxCross2 />
+        </span>{" "}
         Delete and re-upload
       </button>
     </Uploaded>
   ) : (
-    <Click>
-      <p>Upload picture of item</p>
-      <img src="" alt="" />
-      <div className="upload" onDragOver={handleDragOver} onDrop={handleDrop}>
-        <input
-          type="file"
-          id="file-input"
-          onChange={handleBrowseFiles}
-          style={{ display: "none" }}
-        />
-        <label htmlFor="file-input" className="btn-main">
+    <>
+      <p>Upload a picture of the item</p>
+      <Click>
+        <div className="upload" onDragOver={handleDragOver} onDrop={handleDrop}>
           <img src="/upload-pic.png" alt="" />
-          <div>
+          <input
+            type="file"
+            id="file-input"
+            onChange={handleBrowseFiles}
+            style={{ display: "none" }}
+          />
+          <label htmlFor="file-input" className="btn-main">
             <span>
-              <TbCloudUpload /> Click to upload
-            </span>
-            <p className="file-info">
-              Accepted file type: jpeg, png, svg, webp.
-            </p>
-            <p className="file-info">Maximum file size is 2MB.</p>
-          </div>
-        </label>
-      </div>
-    </Click>
+              <TbCloudUpload />
+            </span>{" "}
+            Click here to upload
+          </label>
+          <p>OR</p>
+          <p className="drag">Drag and drop your file.</p>
+          <span className="file-info">
+            Accepted file types: jpeg, png, svg, webp.
+          </span>
+          <span className="file-info">Maximum file size is 2MB.</span>
+        </div>
+      </Click>
+    </>
   );
 };
 
