@@ -12,11 +12,17 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    /* padding: 0 10rem; */
 
     p {
       margin: 0;
     }
+  }
+
+  .owner-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
   }
 
   input,
