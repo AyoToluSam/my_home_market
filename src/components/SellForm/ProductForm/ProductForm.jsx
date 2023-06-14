@@ -65,11 +65,7 @@ const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
         />
         {errors.location && <span>*This field is required</span>}
       </div>
-      <Upload />
-      {/* <UploadWidget setImageUrl={setImageUrl} imageUrl={imageUrl} />
-      {!imageUrl && (
-        <span>*Upload an image of the product. (Less than 10MB)</span>
-      )} */}
+      <Upload setImageUrl={setImageUrl} imageUrl={imageUrl} />
     </div>
   );
 };

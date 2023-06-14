@@ -3,18 +3,40 @@ import { TbCloudUpload } from "react-icons/tb";
 import { RxCross2 } from "react-icons/rx";
 import { Uploaded, Click } from "./UploadStyles";
 
-const Upload = () => {
+const Upload = ({ setImageUrl, imageUrl }) => {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [errMsg, setErrMsg] = useState("");
 
-  const handleBrowseFiles = (event) => {
+  const cloudinary = async (imageFile) => {
+    const formData = new FormData();
+    formData.append("file", imageFile);
+    formData.append("upload_preset", "rp7fs59d");
+
+    const response = await fetch(
+      "https://api.cloudinary.com/v1_1/dhyopp1tf/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+    if (response.ok) {
+      const data = await response.json();
+      const imageUrl = data.url;
+      setImageUrl(imageUrl);
+    } else {
+      console.log(response.status);
+    }
+  };
+
+  const uploader = (file) => {
     const allowedTypes = [
       "image/jpeg",
       "image/png",
       "image/webp",
       "image/svg+xml",
     ];
-    const file = event.target.files[0];
+
     if (
       file &&
       allowedTypes.includes(file.type) &&
@@ -38,14 +60,19 @@ const Upload = () => {
   const handleDrop = (event) => {
     event.preventDefault();
     const file = event.dataTransfer.files[0];
-    if (file && file.size <= 2 * 1024 * 1024) {
-      setUploadedFile(file);
-    } else {
-      setErrMsg("Maximum file size is 2MB.");
-    }
+    uploader(file);
   };
 
-  useEffect(() => {}, [uploadedFile]);
+  const handleBrowseFiles = (event) => {
+    const file = event.target.files[0];
+    uploader(file);
+  };
+
+  useEffect(() => {
+    if (uploadedFile) {
+      cloudinary(uploadedFile);
+    }
+  }, [uploadedFile]);
 
   return uploadedFile ? (
     <Uploaded>
