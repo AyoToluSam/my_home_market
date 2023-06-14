@@ -1,24 +1,24 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CartContainer = styled.div`
-position: fixed;
-z-index: 9;
-top: 0;
-right: 0;
-padding: 1.3rem 2rem;
-height: 100%;
-min-width: max-content;
-background-color: #fff;
-box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
-display: flex;
-flex-direction: column;
-gap: 2rem;
-overflow: auto;
-scroll-behavior: smooth;
-scrollbar-width: thin;
-scrollbar-color: grey;
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  padding: 1.3rem 2rem;
+  height: 100%;
+  min-width: max-content;
+  background-color: #fff;
+  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: grey;
 
-&::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 4px;
     display: none;
   }
@@ -50,18 +50,18 @@ export const CloseButton = styled.div`
   cursor: pointer;
 
   &:hover {
-    color: #644D3B;
-    border: 1px solid #644D3B;
+    color: #644d3b;
+    border: 1px solid #644d3b;
   }
 `;
 
 export const CartList = styled.ul`
-list-style: none;
-padding: 0;
-margin: 0;
-display: flex;
-flex-direction: column;
-gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const CartItem = styled.li`
@@ -113,12 +113,12 @@ export const RightDiv = styled.div`
 `;
 
 export const CartItemName = styled.span`
-font-weight: bold;
+  font-weight: bold;
 `;
 
 export const CartItemPrice = styled.span`
-color: #000;
-font-weight: bold;
+  color: #000;
+  font-weight: bold;
 `;
 
 export const Empty = styled.p`
@@ -134,11 +134,11 @@ export const TotalContainer = styled.div`
 `;
 
 export const CartTotal = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 10px;
-font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-weight: bold;
 `;
 
 export const RemoveAll = styled.button`
@@ -146,6 +146,7 @@ export const RemoveAll = styled.button`
   border: none;
   border-radius: 5px;
   background-color: darkred;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
 `;
@@ -156,7 +157,7 @@ export const CheckoutButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   button {
     font-weight: bold;
     padding: 0.5rem 2rem;
@@ -165,4 +166,3 @@ export const CheckoutButton = styled.div`
     cursor: pointer;
   }
 `;
-
