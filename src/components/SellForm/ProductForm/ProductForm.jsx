@@ -1,5 +1,4 @@
 import Upload from "@/components/Upload/Upload";
-import UploadWidget from "@/components/UploadWidget/UploadWidget";
 
 const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
   return (

@@ -11,7 +11,6 @@ const Upload = ({ setImageUrl, imageUrl }) => {
     const formData = new FormData();
     formData.append("file", imageFile);
     formData.append("upload_preset", "rp7fs59d");
-
     const response = await fetch(
       "https://api.cloudinary.com/v1_1/dhyopp1tf/image/upload",
       {
@@ -19,7 +18,6 @@ const Upload = ({ setImageUrl, imageUrl }) => {
         body: formData,
       }
     );
-
     if (response.ok) {
       const data = await response.json();
       const imageUrl = data.url;
@@ -28,7 +26,6 @@ const Upload = ({ setImageUrl, imageUrl }) => {
       console.log(response.status);
     }
   };
-
   const uploader = (file) => {
     const allowedTypes = [
       "image/jpeg",
