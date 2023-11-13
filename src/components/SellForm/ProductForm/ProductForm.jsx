@@ -12,7 +12,6 @@ const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
           />
           {errors.name && <span>*This field is required</span>}
         </div>
-
         <div className="input">
           <label htmlFor="condition">Condition</label>
           <select
@@ -31,7 +30,6 @@ const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
           {errors.condition && <span>*This field is required</span>}
         </div>
       </div>
-
       <div className="input">
         <label htmlFor="description"> Product Description</label>
         <textarea
@@ -40,7 +38,6 @@ const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
         />
         {errors.description && <span>*This field is required</span>}
       </div>
-
       <div className="input">
         <label htmlFor="price">Amount</label>
         <input
@@ -55,7 +52,6 @@ const ProductForm = ({ register, errors, imageUrl, setImageUrl }) => {
           <span>Price must be greater than or equal to 0</span>
         )}
       </div>
-
       <div className="input">
         <label htmlFor="location">Location</label>
         <input
