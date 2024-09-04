@@ -1,10 +1,7 @@
-import Confirmation from '@/components/Confirmation/Confirmation'
-
+import Confirmation from "@/components/Confirmation/Confirmation";
 
 const CheckOut = () => {
-  return (
-    <Confirmation/>
-  )
-}
+  return <Confirmation />;
+};
 
 export default CheckOut;

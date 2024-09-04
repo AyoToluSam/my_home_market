@@ -1,10 +1,8 @@
-import OrderDetails from '@/components/OrderDetails/OrderDetails'
-import React from 'react'
+import OrderDetails from "@/components/OrderDetails/OrderDetails";
+import React from "react";
 
 const Order = () => {
-  return (
-    <OrderDetails />
-  )
-}
+  return <OrderDetails />;
+};
 
-export default Order
+export default Order;

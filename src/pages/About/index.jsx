@@ -1,6 +1,6 @@
-import React from 'react'
-import {Container} from '../../styles/aboutStyles'
- 
+import React from "react";
+import { Container } from "../../styles/aboutStyles";
+
 const About = () => {
   return (
     <>
@@ -9,7 +9,7 @@ const About = () => {
         <p>Going live very soon!!!</p>
       </Container>
     </>
-  )
-}
+  );
+};
 
 export default About;
