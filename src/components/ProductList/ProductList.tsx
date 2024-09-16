@@ -22,6 +22,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useGetProductsQuery } from "@/redux/api/productsApi";
 import { ProductProps } from "@/pages/market/product/[productId]";
+import Loading from "../Loading/Loading";
+import Empty from "../Empty/Empty";
 
 const ProductList = ({ search = "" }) => {
   const router = useRouter();
@@ -29,7 +31,7 @@ const ProductList = ({ search = "" }) => {
 
   const dispatch = useDispatch();
 
-  const { data = [] } = useGetProductsQuery({});
+  const { data = [], isLoading } = useGetProductsQuery({});
 
   const filteredProducts = data
     .filter((d: ProductProps) => !category || d.category === category)
@@ -46,52 +48,58 @@ const ProductList = ({ search = "" }) => {
   return (
     <ProductListContainer>
       <h5>Featured Products</h5>
-      <Products>
-        {filteredProducts.map(({ id, name, image, price }: ProductProps) => {
-          const quantity = getItemQuantity(id);
-          return (
-            <ProductCard key={id}>
-              <ProductImage
-                src={image}
-                alt={name}
-                onClick={() => router.push(`/market/product/${id}`)}
-              />
-              <ProductName>{name}</ProductName>
-              <ProductPrice>{formatCurrency(price)}</ProductPrice>
-              <Link href={`/market/product/${id}`}>
-                <MdArrowRight /> View Details
-              </Link>
-              {quantity === 0 ? (
-                <AddToCart onClick={() => dispatch(increaseItemQuantity(id))}>
-                  {" "}
-                  + Add to cart
-                </AddToCart>
-              ) : (
-                <div className="allButtons">
-                  <div className="quantityButtons">
-                    <QuantityButton
-                      onClick={() => dispatch(decreaseItemQuantity(id))}
-                    >
-                      -
-                    </QuantityButton>
-                    <p>
-                      <span>{quantity}</span>in cart
-                    </p>
-                    <QuantityButton
-                      onClick={() => dispatch(increaseItemQuantity(id))}
-                    >
-                      +
-                    </QuantityButton>
+      {isLoading ? (
+        <Loading />
+      ) : filteredProducts.length ? (
+        <Products>
+          {filteredProducts.map(({ id, name, image, price }: ProductProps) => {
+            const quantity = getItemQuantity(id);
+            return (
+              <ProductCard key={id}>
+                <ProductImage
+                  src={image}
+                  alt={name}
+                  onClick={() => router.push(`/market/product/${id}`)}
+                />
+                <ProductName>{name}</ProductName>
+                <ProductPrice>{formatCurrency(price)}</ProductPrice>
+                <Link href={`/market/product/${id}`}>
+                  <MdArrowRight /> View Details
+                </Link>
+                {quantity === 0 ? (
+                  <AddToCart onClick={() => dispatch(increaseItemQuantity(id))}>
+                    {" "}
+                    + Add to cart
+                  </AddToCart>
+                ) : (
+                  <div className="allButtons">
+                    <div className="quantityButtons">
+                      <QuantityButton
+                        onClick={() => dispatch(decreaseItemQuantity(id))}
+                      >
+                        -
+                      </QuantityButton>
+                      <p>
+                        <span>{quantity}</span>in cart
+                      </p>
+                      <QuantityButton
+                        onClick={() => dispatch(increaseItemQuantity(id))}
+                      >
+                        +
+                      </QuantityButton>
+                    </div>
+                    <RemoveButton onClick={() => dispatch(removeFromCart(id))}>
+                      Remove
+                    </RemoveButton>
                   </div>
-                  <RemoveButton onClick={() => dispatch(removeFromCart(id))}>
-                    Remove
-                  </RemoveButton>
-                </div>
-              )}
-            </ProductCard>
-          );
-        })}
-      </Products>
+                )}
+              </ProductCard>
+            );
+          })}
+        </Products>
+      ) : (
+        <Empty msg={`There no products in the "${category}" category.`} />
+      )}
     </ProductListContainer>
   );
 };
