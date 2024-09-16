@@ -1,17 +1,20 @@
-// redux/store.ts
-import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './cartSlice';
-import { productsApi } from './productsApi';
+import { configureStore } from "@reduxjs/toolkit";
+import paystackApi from "../api/paystackApi";
+import { productsApi } from "../api/productsApi";
+import cartSlice from "../features/cartSlice";
 
 export const store = configureStore({
   reducer: {
-    cart: cartReducer,
-    [productsApi.reducerPath]: productsApi.reducer, // Integrating RTK Query reducer
+    cart: cartSlice.reducer,
+    [productsApi.reducerPath]: productsApi.reducer,
+    [paystackApi.reducerPath]: paystackApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware), // Adding RTK Query middleware
+    getDefaultMiddleware().concat([
+      productsApi.middleware,
+      paystackApi.middleware,
+    ]),
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

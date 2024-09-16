@@ -97,7 +97,8 @@ export const CartProvider = ({ children }) => {
         cartQuantity,
         cartItems,
         data,
-      }}>
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

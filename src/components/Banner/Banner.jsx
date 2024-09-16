@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { BannerWrapper } from "./BannerStyles";
 
@@ -6,13 +7,15 @@ const Banner = () => {
     <BannerWrapper>
       <div className="sales">
         <h3>
-          Get 10% discount by selling on <br /> MHM
+          Get 10% discount if you buy <br /> on MHM today
         </h3>
         <p>
-          We have a smooth and user friendly operating standard, <br />{" "}
-          enumerated in steps below.
+          We have the best deals on all kinds of home appliances, <br /> new and
+          neatly used.
         </p>
-        <button>Apply</button>
+        <Link href={"/market"}>
+          <button>Buy</button>
+        </Link>
       </div>
       <img src="/banner3.webp" alt="Banner" />
     </BannerWrapper>

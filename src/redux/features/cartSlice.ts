@@ -1,8 +1,7 @@
-// redux/cartSlice.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useLocalStorage } from '@/utilities/useLocalStorage';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store/store";
 
-interface CartItem {
+export interface CartItem {
   id: string;
   quantity: number;
 }
@@ -18,13 +17,9 @@ const initialState: CartState = {
 };
 
 export const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState,
   reducers: {
-    initializeCart: (state) => {
-      const [storedItems] = useLocalStorage('Shopping Cart', []);
-      state.cartItems = storedItems || [];
-    },
     openCart: (state) => {
       state.isOpen = true;
     },
@@ -32,35 +27,55 @@ export const cartSlice = createSlice({
       state.isOpen = false;
     },
     increaseItemQuantity: (state, action: PayloadAction<string>) => {
-      const item = state.cartItems.find((item) => item.id === action.payload);
-      if (item) {
-        item.quantity++;
+      const id = action.payload;
+      const cartItems = state.cartItems;
+
+      if (!cartItems?.length) {
+        state.cartItems = [{ id, quantity: 1 }];
+      } else if (!cartItems.find((item) => item.id === id)) {
+        state.cartItems = [...cartItems, { id, quantity: 1 }];
       } else {
-        state.cartItems.push({ id: action.payload, quantity: 1 });
+        state.cartItems = cartItems.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
       }
     },
     decreaseItemQuantity: (state, action: PayloadAction<string>) => {
-      const item = state.cartItems.find((item) => item.id === action.payload);
-      if (item) {
-        if (item.quantity === 1) {
-          state.cartItems = state.cartItems.filter(
-            (item) => item.id !== action.payload
-          );
-        } else {
-          item.quantity--;
-        }
+      const id = action.payload;
+      const cartItems = state.cartItems;
+
+      if (cartItems.find((item) => item.id === id)?.quantity === 1) {
+        state.cartItems = cartItems.filter((item) => item.id !== id);
+      } else {
+        state.cartItems = cartItems.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        });
       }
     },
     removeFromCart: (state, action: PayloadAction<string>) => {
-      state.cartItems = state.cartItems.filter(
-        (item) => item.id !== action.payload
-      );
+      const id = action.payload;
+
+      state.cartItems = state.cartItems.filter((item) => item.id !== id);
     },
     removeAll: (state) => {
       state.cartItems = [];
     },
   },
 });
+
+export const selectIsOpen = (state: RootState) => state.cart.isOpen;
+export const selectCartItems = (state: RootState) => state.cart.cartItems;
+export const selectCartQuantity = (state: RootState) =>
+  state.cart.cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
+
+export const selectItemQuantity = (id: string) => (state: RootState) =>
+  state.cart.cartItems?.find((item) => item.id === id)?.quantity || 0;
 
 export const {
   openCart,
@@ -69,7 +84,6 @@ export const {
   decreaseItemQuantity,
   removeFromCart,
   removeAll,
-  initializeCart,
 } = cartSlice.actions;
 
-export default cartSlice.reducer;
+export default cartSlice;
