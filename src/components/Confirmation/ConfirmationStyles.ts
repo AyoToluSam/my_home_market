@@ -27,6 +27,7 @@ export const ConfirmationWrapper = styled.div`
 
     img {
       max-width: 20px;
+      border-radius: 50%;
     }
   }
 `;

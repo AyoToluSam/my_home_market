@@ -52,8 +52,6 @@ const CheckOut = () => {
     });
 
   const onSubmit = (data: FieldValues) => {
-    console.log(data);
-
     setLoading(true);
 
     const submitData = {

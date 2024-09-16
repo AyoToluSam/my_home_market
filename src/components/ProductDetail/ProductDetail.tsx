@@ -46,7 +46,9 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
   const quantity = useSelector(selectItemQuantity(product.id));
 
   const handleCheckout = () => {
-    dispatch(increaseItemQuantity(product.id));
+    if (quantity < 1) {
+      dispatch(increaseItemQuantity(product.id));
+    }
     router.push("/checkout");
   };
 
