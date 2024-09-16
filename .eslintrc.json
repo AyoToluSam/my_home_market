@@ -9,6 +9,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:next/recommended",
+    "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -19,21 +20,16 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",  // Not needed in Next.js
+    "react/react-in-jsx-scope": "off", // Not needed in Next.js
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "react/prop-types": "off"           // Disable prop-types as we use TypeScript
+    "react/prop-types": "off" // Disable prop-types as we use TypeScript
   },
   "settings": {
     "react": {
-      "version": "detect"  // Automatically detect the React version
+      "version": "detect" // Automatically detect the React version
     }
   }
 }
