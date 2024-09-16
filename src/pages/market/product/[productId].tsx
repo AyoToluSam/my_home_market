@@ -1,7 +1,7 @@
 import ProductDetail from "@/components/ProductDetail/ProductDetail";
 import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/router";
-import { BlurBackground, Loading } from "../styles";
+import { BlurBackground, Loading } from "../../../styles/market/styles";
 
 export type ProductProps = {
   id: string;

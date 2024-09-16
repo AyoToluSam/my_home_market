@@ -1,4 +1,4 @@
-import { SellWrapper, SellBody } from "./styles";
+import { SellWrapper, SellBody } from "../../styles/sell/styles";
 import SellForm from "@/components/SellForm/SellForm";
 import Banner from "@/components/Banner/Banner";
 

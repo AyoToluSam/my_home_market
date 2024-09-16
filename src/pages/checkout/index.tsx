@@ -8,7 +8,10 @@ import { useGetProductsQuery } from "@/redux/api/productsApi";
 import { CartItem, selectCartItems } from "@/redux/features/cartSlice";
 import { FieldValues, useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import { CheckoutContainer, PaymentSuccess } from "./styles";
+import {
+  CheckoutContainer,
+  PaymentSuccess,
+} from "../../styles/checkout/styles";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Success from "@/components/Success/Success";
