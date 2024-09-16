@@ -45,6 +45,11 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
 
   const quantity = useSelector(selectItemQuantity(product.id));
 
+  const handleCheckout = () => {
+    dispatch(increaseItemQuantity(product.id));
+    router.push("/checkout");
+  };
+
   return (
     <Wrapper>
       <Banner />
@@ -66,10 +71,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
                 <p className="location">
                   <HiLocationMarker /> {product.location}
                 </p>
-                <button
-                  onClick={() => router.push("/checkout")}
-                  className="checkout"
-                >
+                <button onClick={handleCheckout} className="checkout">
                   Proceed to checkout
                 </button>
                 {quantity === 0 ? (
